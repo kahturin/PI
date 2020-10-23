@@ -11,6 +11,10 @@ a:hover
     font-weight: bold;
 }
 
+li{
+  list-style-type: none;
+}
+
 /*Banners*/
 .banner-home
 {
@@ -243,4 +247,118 @@ p{
 	text-align: center;
 	font-size: 15px;
     color: white;
+}
+
+.preview-img{
+  width: 400px;
+  height: 500px;
+}
+
+.box_filmes{
+  display: flex;
+  width: 150%;
+  height: 100%;
+  flex-direction: row;
+}
+
+.upload_capa{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: auto;
+  flex-flow: row wrap;
+  padding: 2%;
+}
+
+.filmes_split{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: auto;
+  flex-flow: row wrap;
+}
+
+.section_filmes{
+width: 80%;
+}
+
+.upload_capa_series{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: auto;
+  flex-flow: row wrap;
+  padding: 2%;
+}
+
+.series_split{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: auto;
+  flex-flow: row wrap;
+}
+
+.section_series{
+  width: 80%;
+  }
+  
+
+.fileUpload {
+  position: relative; 
+  overflow: hidden; 
+  margin: 10px; 
+  background-color: #343a40;
+  color: white;
+  border-radius: 8px;
+  width: 150px;
+  height: 35px;
+  text-align: center;
+  left: 25%;
+}
+
+.fileUpload:hover{
+  border: 2px solid darkgray;
+}
+
+.fileUpload input.upload { 
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  margin: 0; 
+  padding: 0; 
+  font-size: 100px; 
+  cursor: pointer; 
+  filter: alpha(opacity=0); 
+  display: hidden;
+}
+
+@media(max-width:1200px) {
+
+.box_filmes{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+  
+  .filmes_split{
+    width: 100%;
+  }
+
+  .upload_capa{
+    width: 100%;
+  }
+
+  .section_filmes{
+    width: 60%;
+    }
 }
