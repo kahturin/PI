@@ -71,11 +71,12 @@
 
                                 <label for="confirmaSenha" class="pt-3">Confirmar Senha</label>
                                 <input id="confirmaSenha" name="confirmaSenha" class="form-control mr-sm-2" type="password" placeholder="Confirme sua senha" required>
+                                
+                                <div class="modal-footer">
+                                    <button type="button" name="btnFechar" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="button" name="btnCadastrar" class="btn btn-primary">Cadastrar</button>
+                                </div>
                             </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="button" class="btn btn-primary">Cadastrar</button>
                         </div>
                     </div>
                 </div>
