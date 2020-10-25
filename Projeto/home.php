@@ -1,3 +1,7 @@
+<?php
+    require 'config/session.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

@@ -40,9 +40,9 @@
                         <a href="#" data-toggle="modal" data-target="#cadastro">Cadastre-se</span></a>
                       </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                      <input class="form-control mr-sm-2" type="email" placeholder="Email">
-                      <input class="form-control mr-sm-2" type="password" placeholder="Senha">
+                    <form class="form-inline my-2 my-lg-0" action="config/login.php" method="POST">
+                      <input class="form-control mr-sm-2" name="email" type="email" placeholder="Email">
+                      <input class="form-control mr-sm-2" name="senha" type="password" placeholder="Senha">
                       <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Entrar</button>
                     </form>
                 </div>
@@ -59,18 +59,18 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form action="" method="POST">
+                            <form action="config/cadastro.php" method="POST">
                                 <label for="nome" class="pt-1">Nome completo</label>
-                                <input id="nome" class="form-control mr-sm-2" type="text" placeholder="Seu nome completo" required>
+                                <input id="nome" name="nome" class="form-control mr-sm-2" type="text" placeholder="Seu nome completo" required>
 
                                 <label for="email" class="pt-3">Email</label>
-                                <input id="email" class="form-control mr-sm-2" type="email" placeholder="seuemail@email.com" required>
+                                <input id="email" name="email" class="form-control mr-sm-2" type="email" placeholder="seuemail@email.com" required>
 
                                 <label for="senha" class="pt-3">Senha</label>
-                                <input id="senha" class="form-control mr-sm-2" type="password" placeholder="Sua senha" required>
+                                <input id="senha" name="senha" class="form-control mr-sm-2" type="password" placeholder="Sua senha" required>
 
                                 <label for="confirmarSenha" class="pt-3">Confirmar Senha</label>
-                                <input id="confirmaSenha" class="form-control mr-sm-2" type="password" placeholder="Confirme sua senha" required>
+                                <input id="confirmaSenha" name="confirmaSenha" class="form-control mr-sm-2" type="password" placeholder="Confirme sua senha" required>
                             </form>
                         </div>
                         <div class="modal-footer">
