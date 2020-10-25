@@ -5,5 +5,5 @@
     {
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
-        header('location: ../index.php');
+        header('location: index.php');
     }

@@ -43,7 +43,7 @@
                     <form class="form-inline my-2 my-lg-0" action="./config/login.php" method="POST">
                       <input class="form-control mr-sm-2" name="email" type="email" placeholder="Email">
                       <input class="form-control mr-sm-2" name="senha" type="password" placeholder="Senha">
-                      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Entrar</button>
+                      <button class="btn btn-outline-light my-2 my-sm-0" name="entrar" type="submit">Entrar</button>
                     </form>
                 </div>
             </nav>
