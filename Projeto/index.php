@@ -40,7 +40,7 @@
                         <a href="#" data-toggle="modal" data-target="#cadastro">Cadastre-se</span></a>
                       </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0" action="config/login.php" method="POST">
+                    <form class="form-inline my-2 my-lg-0" action="./config/login.php" method="POST">
                       <input class="form-control mr-sm-2" name="email" type="email" placeholder="Email">
                       <input class="form-control mr-sm-2" name="senha" type="password" placeholder="Senha">
                       <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Entrar</button>
@@ -73,8 +73,8 @@
                                 <input id="confirmaSenha" name="confirmaSenha" class="form-control mr-sm-2" type="password" placeholder="Confirme sua senha" required>
                                 
                                 <div class="modal-footer">
-                                    <button type="button" name="btnFechar" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                    <button type="button" name="btnCadastrar" class="btn btn-primary">Cadastrar</button>
+                                    <!-- <button type="button" name="btnFechar" class="btn btn-secondary" data-dismiss="modal">Fechar</button> -->
+                                    <button type="submit" name="btnCadastrar" class="btn btn-primary">Cadastrar</button>
                                 </div>
                             </form>
                         </div>
@@ -87,9 +87,12 @@
             <!-- Banner do Site -->
             <section class="banner-home banner-lg d-flex align-items-center px-4">
                 <div class="container mx-auto">
-                    <span class="h2 d-block text-justify text-white">
+                    <span class="h2 d-block text-center text-white">
                         Cinéfilo ou não, com certeza você já assistiu muitos dos filmes e séries que estão
-                        em moda pela galera hoje em dia. Que tal simular quanto tempo de vida você já
+                        em moda pela galera hoje em dia. 
+                    </span>
+                    <span class="h2 d-block text-center text-white">    
+                        Que tal simular quanto tempo de vida você já
                         gastou vendo filmes e séries e descobrir se você tem vida social ou não?
                         Cadastre-se.
                     </span>

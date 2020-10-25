@@ -1,22 +1,23 @@
 <?php
-    require 'session.php';
+    require_once 'db.php';
 
     $email = $_POST['email'];
-	$senha = md5($_POST['senha']);
+	$senha = $_POST['senha'];
+	
+	$objStmt = $objBanco->prepare('	SELECT * FROM usuario WHERE email = (:email) AND senha (:senha)');
 
-    
-    include("db.php");
-        
-       
-	$query = "SELECT * FROM usuario WHERE email = '".$email."' AND senha = '".$senha."'";
+	$objStmt->bindParam(':email', $_POST['email']);	
+	$objStmt->bindParam(':senha', $_POST['senha']);
 
-	$result = $mysqli->query($query);
+	$result = $objStmt->execute();
 	
 	
 	if($result->num_rows > 0)
 	{
 		$_SESSION['email'] = $email;
-		$_SESSION['senha'] = $senha;	
+		$_SESSION['senha'] = $senha;
+
+		header('location: ../home.php');
 		
 	}else
 	{
