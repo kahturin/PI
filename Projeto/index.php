@@ -69,7 +69,7 @@
                                 <label for="senha" class="pt-3">Senha</label>
                                 <input id="senha" name="senha" class="form-control mr-sm-2" type="password" placeholder="Sua senha" required>
 
-                                <label for="confirmarSenha" class="pt-3">Confirmar Senha</label>
+                                <label for="confirmaSenha" class="pt-3">Confirmar Senha</label>
                                 <input id="confirmaSenha" name="confirmaSenha" class="form-control mr-sm-2" type="password" placeholder="Confirme sua senha" required>
                             </form>
                         </div>
