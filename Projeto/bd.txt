@@ -6,14 +6,14 @@ CREATE TABLE usuario (
 );
 
 CREATE TABLE filmes(
-    filmeID int NOT NULL AUTO_INCREMENT,
+    filmeID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nomeFilme varchar (255) NOT NULL,
     duracaoFilme time NOT NULL,
     sinopseFilme varchar NOT NULL,
 );
 
 CREATE TABLE series(
-    serieID int NOT NULL AUTO_INCREMENT,
+    serieID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nomeSerie varchar(255) NOT NULL,
     temporada varchar(255) NOT NULL,
     duracaoEP time NOT NULL,
