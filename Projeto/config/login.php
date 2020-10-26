@@ -18,6 +18,6 @@
             die();
         }else{
             //Erro
-            print '<div class="box_erro_login"><p><i class="fas fa-exclamation-circle"></i> Credenciais inválidas.</p></div>';
+            print "<script language='javascript' type='text/javascript'>alert('Credenciais inválidas');window.location.href='../index.php'</script>";
         }
 	}
