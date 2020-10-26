@@ -22,14 +22,14 @@
         if($senha == $confirmaSenha){
             if ( $objStmt->execute() ) {
         
-                $msg = 'Contato gravado com sucesso!';
+                print "<script language='javascript' type='text/javascript'>alert('Cadastrado com sucesso!');window.location.href='../home.php'</script>";
             
             } else {
             
-                $msg = ' :-( deu erro, tente novamente! ';
+                print "<script language='javascript' type='text/javascript'>alert('Erro. Tente novamente.');window.location.href='../index.php'</script>";
             }  
         }
         else{
-            print "<script language='javascript' type='text/javascript'>alert('As senhas digitadas não coincidem.');window.location.href='index.php'</script>";
+            print "<script language='javascript' type='text/javascript'>alert('As senhas digitadas não coincidem.');window.location.href='../index.php'</script>";
         }
     }
