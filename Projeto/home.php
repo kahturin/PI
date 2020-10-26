@@ -1,5 +1,5 @@
 <?php
-    require 'config/session.php';
+    require './config/session.php';
 ?>
 
 <!DOCTYPE html>
