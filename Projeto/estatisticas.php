@@ -106,10 +106,4 @@
 
             <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
-            <section id="to-watch">
-                <h1>Séries Assistidas</h1>
-                <ul class="to-watch-list posters-list list-unstyled list-inline single-row">
-                
-                <div class="image-crop">
-                   <a href="/en/show/281620/episode/6868345">
-                   <img src="https://dg31sz3gwrwan.cloudfront.net/poster/281620/1089924-4-optimized.jpg" alt="How to Get Away with Murder">
+        

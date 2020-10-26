@@ -53,21 +53,45 @@
 
             <ul class="nav flex-column bg-light mb-0">
                 <li class="nav-item">
-                    <a href="home.html" class="nav-link text-white font-italic">
-                        <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                    <a href="home.php" class="nav-link text-white font-italic">
+                        <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
                         Página Principal
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="meus_filmes.html" class="nav-link text-white font-italic">
-                        <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                    <a href="#" class="nav-link text-white font-italic">
+                        <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
                         Meus Filmes
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="minhas_series.html" class="nav-link text-white font-italic">
-                        <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                    <a href="minhas_series.php" class="nav-link text-white font-italic">
+                        <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
                         Minhas Séries
+                    </a>
+                </li>
+            </ul>
+
+            <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Entretenimento</p>
+
+            <ul class="nav flex-column bg-white mb-0">
+
+                <li class="nav-item">
+                    <a href="estatisticas.php" class="nav-link text-white font-italic">
+                        <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
+                        Estatísticas
+                    </a>
+                 </li>
+                <li class="nav-item">
+                    <a href="adicionar_filmes.php" class="nav-link text-white font-italic">
+                        <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
+                        Adicionar Filmes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="adicionar_series.php" class="nav-link text-white font-italic">
+                        <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
+                        Adicionar Séries
                     </a>
                 </li>
             </ul>

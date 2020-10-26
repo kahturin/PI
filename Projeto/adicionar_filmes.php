@@ -49,46 +49,70 @@
     </header>
 
     <main>
-      <div class="vertical-nav" id="sidebar">
-        <div class="menu py-4 px-3 mb-4">
-            <div class="media d-flex align-items-center"><img
-                    src="images/hulk.jpg"
-                    width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
-                <div class="media-body">
-                    <h4 class="m-0">Hulk</h4>
-                    <p class="font-weight-light text-muted mb-0">Cinéfilo</p>
+        <div class="vertical-nav" id="sidebar">
+            <div class="menu py-4 px-3 mb-4">
+                <div class="media d-flex align-items-center"><img
+                        src="images/hulk.jpg"
+                        width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+                    <div class="media-body">
+                        <h4 class="m-0">Hulk</h4>
+                        <p class="font-weight-light text-muted mb-0">Cinéfilo</p>
+                    </div>
                 </div>
             </div>
+
+            <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Página Inicial</p>
+
+            <ul class="nav flex-column bg-light mb-0">
+                <li class="nav-item">
+                    <a href="home.php" class="nav-link text-white font-italic">
+                        <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
+                        Página Principal
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white font-italic">
+                        <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
+                        Meus Filmes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="minhas_series.php" class="nav-link text-white font-italic">
+                        <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
+                        Minhas Séries
+                    </a>
+                </li>
+            </ul>
+
+            <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Entretenimento</p>
+
+            <ul class="nav flex-column bg-white mb-0">
+
+                <li class="nav-item">
+                    <a href="estatisticas.php" class="nav-link text-white font-italic">
+                        <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
+                        Estatísticas
+                    </a>
+                 </li>
+                <li class="nav-item">
+                    <a href="adicionar_filmes.php" class="nav-link text-white font-italic">
+                        <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
+                        Adicionar Filmes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="adicionar_series.php" class="nav-link text-white font-italic">
+                        <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
+                        Adicionar Séries
+                    </a>
+                </li>
+            </ul>
         </div>
 
-        <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Página Inicial</p>
-
-        <ul class="nav flex-column bg-light mb-0">
-            <li class="nav-item">
-                <a href="home.html" class="nav-link text-white font-italic">
-                    <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
-                    Página Principal
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="meus_filmes.html" class="nav-link text-white font-italic">
-                    <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
-                    Meus Filmes
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="minhas_series.html" class="nav-link text-white font-italic">
-                    <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
-                    Minhas Séries
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="page-content p-5" id="content">
-      <button id="sidebarCollapse" type="button"
-          class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small
-              class="text-uppercase font-weight-bold">Alternar</small></button>
+        <div class="page-content p-5" id="content">
+            <button id="sidebarCollapse" type="button"
+                class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small
+                    class="text-uppercase font-weight-bold">Alternar</small></button>
 
               
 
