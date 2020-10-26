@@ -1,27 +1,23 @@
 <?php
     require_once 'db.php';
 
-	if(!isset($_POST['entrar']))
+	if(isset($_POST['btnEntrar']))
 	{
-		$email = $_POST['email'];
-		$senha = $_POST['senha'];
-		
-		$sql = $pdo->prepare("SELECT * FROM usuario WHERE email = ?");
-		$sql->execute([$email]);
+        $objStmt = $objBanco->prepare('	SELECT * FROM usuario WHERE email = (:email) AND senha = (:senha)');
+        
+        $objStmt->bindParam(':email', $_POST['email']);	
+        $objStmt->bindParam(':senha', $_POST['senha']);
 
-		if($sql->rowCount() == 1){
-            $info = $sql->fetch();
-            if(password_verify($senha, $info['senha'])){
-                $_SESSION['email'] = $info['email'];
-                $_SESSION['senha'] = $info['senha'];
-                header("Location: ../home.php");
-                die();
-            }else{
-                //Erro
-                echo '<div class="box_erro_login"><p><i class="fas fa-exclamation-circle"></i> Usuário ou senha incorretos!</p></div>';
-            }
+		$objStmt->execute();
+
+		if($objStmt->rowCount() == 1){
+            $info = $objStmt->fetch();
+            $_SESSION['email'] = $info['email'];
+            $_SESSION['senha'] = $info['senha'];
+            print "<script language='javascript' type='text/javascript'>alert('Bem-vindo '".$info['email']."'!');window.location.href='../home.php'</script>";
+            die();
         }else{
             //Erro
-            echo '<div class="box_erro_login"><p><i class="fas fa-exclamation-circle"></i> Usuário não encontrado.</p></div>';
+            print '<div class="box_erro_login"><p><i class="fas fa-exclamation-circle"></i> Credenciais inválidas.</p></div>';
         }
 	}
