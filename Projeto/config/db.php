@@ -1,8 +1,8 @@
 <?php
 
-require_once 'config.php';
-
-//Exemplo de try e catch
+define( 'DSN', 'mysql:dbname=banco_filmes;host=localhost');
+define( 'DB_USER', 'root');
+define( 'DB_PASS', '');
 
 try {
 
@@ -10,7 +10,7 @@ try {
 
 } catch ( PDOException $objErro ) {
 
-	echo 'SGBD Indisponível: ' . $objErro->getMessage();
+	print "<script language='javascript' type='text/javascript'>alert('Banco de Dados indisponível.');window.location.href='../home.php'</script>";
 
 	exit();
 }
