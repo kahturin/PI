@@ -20,7 +20,7 @@
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
 
-            header("location: ../home.php");            
+            header("location: ../home.php");
             die();
         }
         else
