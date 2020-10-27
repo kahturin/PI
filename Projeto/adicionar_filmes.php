@@ -128,7 +128,7 @@
                     <img class="preview-img">    
                       <div class="file-chooser fileUpload">
                         <span>Escolher Capa</span>
-                        <input type="file" class="upload" accept="image/*"> 
+                        <input type="file" class="upload" accept="image/*" name="capaFilme"> 
                       </div>
                 </form> 
                 <script>
