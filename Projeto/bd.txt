@@ -1,15 +1,17 @@
-CREATE TABLE usuario (
+ CREATE TABLE usuario (
     userID int NOT NULL AUTO_INCREMENT,
     nome varchar(255) NOT NULL,
     email varchar(255) NOT NULL,
-    senha varchar(255) NOT NULL
+    senha varchar(255) NOT NULL,
+    PRIMARY KEY (userID)
 );
 
 CREATE TABLE filmes(
     filmeID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nomeFilme varchar (255) NOT NULL,
     duracaoFilme time NOT NULL,
-    sinopseFilme (500) varchar NOT NULL
+    sinopseFilme  varchar (500) NOT NULL,
+    destino_foto  varchar (100) NOT NULL
 );
 
 CREATE TABLE series(
@@ -18,5 +20,7 @@ CREATE TABLE series(
     temporada varchar(255) NOT NULL,
     duracaoEP time NOT NULL,
     numEPS int NOT NULL,
-    sinopseSerie (500) varchar NOT NULL
+    sinopseSerie varchar (500) NOT NULL,
+    caminho_foto varchar (100) NOT NULL,
+    destino_foto varchar (100) NOT NULL
 );
