@@ -5,6 +5,9 @@
     $nome_arquivo = $_FILES['arquivo']['name'];
 
     $destino = '../imagens_capas_filmes/' . $nome_arquivo;
+    $nomeFilme = $_POST['nomeFilme'];
+    $duracaoFilme = $_POST['duracaoFilme'];
+    $sinopseFilme = $_POST['sinopseFilme'];
     
     $arquivo_tmp = $_FILES['arquivo']['tmp_name'];
 
@@ -13,12 +16,12 @@
     $objStmt = $objBanco->prepare('	INSERT INTO filmes 
         (nomeFilme, duracaoFilme, sinopseFilme, destinoFoto)
     VALUES 
-        (:nomeFilme, :duracaoFilme, :sinopseFilme, :destinoFoto)');
-        
-    $objStmt->bindParam(':nomeFilme', $_POST['nomeFilme']);
-    $objStmt->bindParam(':duracaoFilme', $_POST['duracaoFilme']);	
-    $objStmt->bindParam(':sinopseFilme', $_POST['sinopseFilme']);	
-    $objStmt->bindParam(':destinoFoto', $destino);	
+        (:mNomeFilme, :mDuracaoFilme, :mSinopseFilme, :mDestinoFoto)');
+
+    $objStmt->bindParam(':mNomeFilme', $nomeFilme);
+    $objStmt->bindParam(':mDuracaoFilme', $duracaoFilme);	
+    $objStmt->bindParam(':mSinopseFilme', $sinopseFilme);	
+    $objStmt->bindParam(':mDestinoFoto', $destino);	
 
     if ( $objStmt->execute() ) 
     {
