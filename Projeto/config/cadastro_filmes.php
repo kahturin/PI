@@ -5,6 +5,7 @@
     $nome_arquivo = $_FILES['arquivo']['name'];
 
     $destino = '../imagens_capas_filmes/' . $nome_arquivo;
+    
     $nomeFilme = $_POST['nomeFilme'];
     $duracaoFilme = $_POST['duracaoFilme'];
     $sinopseFilme = $_POST['sinopseFilme'];

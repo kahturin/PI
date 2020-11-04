@@ -119,15 +119,15 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
         <h2 class="text-white"> O que você está assistindo? </h2>
-
-        <div class="box_filmes">
         <form action='config/cadastro_series.php' method='POST' encType="multipart/form-data">
-          <section class="upload_capa_series">
+        <div class="box_filmes">
+        
+        <section class="upload_capa">
             <div class="form-group">
                     <img class="preview-img">    
                       <div class="file-chooser fileUpload">
                         <span>Escolher Capa</span>
-                        <input type="file" class="upload" accept="image/*"> 
+                        <input type="file" class="upload" accept="image/*" name="arquivo"> 
                       </div>
                 <script>
                     const $ = document.querySelector.bind(document);
@@ -149,7 +149,6 @@
                 </script>
             </div>
           </section>
-
         <section class="series_split">
 
           <section class="section_series">
@@ -169,14 +168,14 @@
           <section class="section_series">
             <div class="form-group">
                 <label for="duracaoEp" class="text-white">Duração média de cada episódio:</label>
-                <input class="bg-dark border-0 rounded text-white" type="time" id="duracaoEp" name="duracaoEp" min="00:00" max="30:00" required>
+                <input class="bg-dark border-0 rounded text-white" type="time" id="duracaoEP" name="duracaoEP" min="00:00" max="30:00" required>
             </div>
           </section>
 
           <section class="section_series">
             <div class="form-group">
                 <label for="numEps" class="text-white">Número de episódios:</label>
-                <input type="text" class="form-control text-gray bg-light" id="numEps" name="numEps" placeholder="Ex.: 12">
+                <input type="text" class="form-control text-gray bg-light" id="numEPS" name="numEPS" placeholder="Ex.: 12">
             </div>
           </section>
 

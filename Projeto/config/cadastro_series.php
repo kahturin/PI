@@ -11,22 +11,20 @@
     $duracaoEP = $_POST['duracaoEP'];
     $numEPS = $_POST['numEPS'];
     $sinopseSerie = $_POST['sinopseSerie'];
-    $destinoFoto = $destino;
-    
     $arquivo_tmp = $_FILES['arquivo']['tmp_name'];
+    $destinoFoto = $destino;
 
     move_uploaded_file( $arquivo_tmp, $destino);
-
 
     try{
     $stmt = $objBanco->prepare('INSERT INTO series ( nomeSerie, temporada, duracaoEP, numEPS, sinopseSerie, destinoFoto) VALUES ( :nomeSerie, :temporada, :duracaoEP, :numEPS, :sinopseSerie, :destinoFoto)');
     $stmt->execute(array(
-      ':nomeSilme' => $nomeSerie,
+      ':nomeSerie' => $nomeSerie,
       ':temporada' => $temporada,
       ':duracaoEP' => $duracaoEP,
       ':numEPS' => $numEPS,
       ':sinopseSerie' => $sinopseSerie,
-      ':destinoFoto' => $destinoFoto
+      ':destinoFoto' => $destino,
     ));
     
     print "<script language='javascript' type='text/javascript'>alert('Série cadastrada com sucesso!');window.location.href='../adicionar_series.php'</script>";

@@ -119,18 +119,15 @@
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
         <h2 class="text-white"> O que você está assistindo? </h2>
-
-        <div class="box_filmes">
         <form action='config/cadastro_filmes.php' method='post' encType="multipart/form-data">
+        <div class="box_filmes">
           <section class="upload_capa">
             <div class="form-group">
-               
                     <img class="preview-img">    
                       <div class="file-chooser fileUpload">
                         <span>Escolher Capa</span>
                         <input type="file" class="upload" accept="image/*" name="arquivo"> 
                       </div>
-                
                 <script>
                     const $ = document.querySelector.bind(document);
                     const previewImg = $('.preview-img');
