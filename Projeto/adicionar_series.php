@@ -121,16 +121,14 @@
         <h2 class="text-white"> O que você está assistindo? </h2>
 
         <div class="box_filmes">
-
+        <form action='config/cadastro_series.php' method='POST' encType="multipart/form-data">
           <section class="upload_capa_series">
             <div class="form-group">
-                <form action='' method='post' encType="multipart/form-data">
                     <img class="preview-img">    
                       <div class="file-chooser fileUpload">
                         <span>Escolher Capa</span>
                         <input type="file" class="upload" accept="image/*"> 
                       </div>
-                </form> 
                 <script>
                     const $ = document.querySelector.bind(document);
                     const previewImg = $('.preview-img');
@@ -196,6 +194,7 @@
           </section>
 
       </section>
+        </form>
       </div>
       </div>
     </main>
