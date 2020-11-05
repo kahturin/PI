@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-white font-italic">
+                <a href="meus_filmes.php" class="nav-link text-white font-italic">
                         <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
                         Meus Filmes
                     </a>

@@ -4,34 +4,46 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
+   <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+   integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+   integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+   crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+   integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+   crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+   integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+   crossorigin="anonymous"></script>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./css/style.css">
+<script src="./js/script.js"></script>
+<link rel="shortcut icon" href="./images/logo.png" />
+<title>Meus Filmes</title>
+    
+    <script>
+        function Checkfiles(){
+        var fup = document.getElementById('capaFilme');
+        var fileName = fup.value;
+        var ext = fileName.substring(fileName.lastIndexOf('.') + 1);
+        if(ext =="jpeg" || ext=="png"){
+            return true;
+        }
+        else{
+            return false;
+        }
+}
+    </script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/script.js"></script>
-    <link rel="shortcut icon" href="./images/logo.png" />
-    <title>Estatísticas</title>
 </head>
 
-<body class="imagem-fundo banner-lg d-flex align-items-center">
-
+  <body class="imagem-fundo banner-lg d-flex align-items-center">
     <header>
 
     </header>
@@ -59,7 +71,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-white font-italic">
+                <a href="meus_filmes.php" class="nav-link text-white font-italic">
                         <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
                         Meus Filmes
                     </a>
@@ -102,14 +114,17 @@
                 class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small
                     class="text-uppercase font-weight-bold">Alternar</small></button>
 
-                    
+              
 
-            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
-            <section id="to-watch">
-                <h1>Séries Assistidas</h1>
-                <ul class="to-watch-list posters-list list-unstyled list-inline single-row">
-                
-                <div class="image-crop">
-                   <a href="/en/show/281620/episode/6868345">
-                   <img src="https://dg31sz3gwrwan.cloudfront.net/poster/281620/1089924-4-optimized.jpg" alt="How to Get Away with Murder">
+        <h2 class="text-white"> Gostaria de ver quais séries você já maratonou? </h2>
+        <form action='config/listar_series.php' method='post' encType="multipart/form-data">
+        <input type='submit' value='Sim'>
+        </form>
+      </div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

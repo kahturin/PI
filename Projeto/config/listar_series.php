@@ -1,5 +1,5 @@
 <?php
-    require 'config/session.php';
+    require 'session.php';
 ?>
 
 <!DOCTYPE html>
@@ -22,9 +22,9 @@
    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
    crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="./css/style.css">
-<script src="./js/script.js"></script>
-<link rel="shortcut icon" href="./images/logo.png" />
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/script.js"></script>
+<link rel="shortcut icon" href="../images/logo.png" />
 <title>Meus Filmes</title>
     
     <script>
@@ -65,19 +65,19 @@
 
             <ul class="nav flex-column bg-light mb-0">
                 <li class="nav-item">
-                    <a href="home.php" class="nav-link text-white font-italic">
+                    <a href="..home.php" class="nav-link text-white font-italic">
                         <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
                         Página Principal
                     </a>
                 </li>
                 <li class="nav-item">
-                <a href="meus_filmes.php" class="nav-link text-white font-italic">
+                <a href="..meus_filmes.php" class="nav-link text-white font-italic">
                         <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
                         Meus Filmes
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="minhas_series.php" class="nav-link text-white font-italic">
+                    <a href="..minhas_series.php" class="nav-link text-white font-italic">
                         <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
                         Minhas Séries
                     </a>
@@ -89,19 +89,19 @@
             <ul class="nav flex-column bg-white mb-0">
 
                 <li class="nav-item">
-                    <a href="estatisticas.php" class="nav-link text-white font-italic">
+                    <a href="..estatisticas.php" class="nav-link text-white font-italic">
                         <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
                         Estatísticas
                     </a>
                  </li>
                 <li class="nav-item">
-                    <a href="adicionar_filmes.php" class="nav-link text-white font-italic">
+                    <a href="..adicionar_filmes.php" class="nav-link text-white font-italic">
                         <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
                         Adicionar Filmes
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="adicionar_series.php" class="nav-link text-white font-italic">
+                    <a href="..adicionar_series.php" class="nav-link text-white font-italic">
                         <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
                         Adicionar Séries
                     </a>
@@ -118,71 +118,41 @@
 
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
-        <h2 class="text-white"> O que você está assistindo? </h2>
-        <form action='config/cadastro_filmes.php' method='post' encType="multipart/form-data">
-        <div class="box_filmes">
-          <section class="upload_capa">
-            <div class="form-group">
-                    <img class="preview-img">    
-                      <div class="file-chooser fileUpload">
-                        <span>Escolher Capa</span>
-                        <input type="file" class="upload" accept="image/*" name="arquivo"> 
-                      </div>
-                <script>
-                    const $ = document.querySelector.bind(document);
-                    const previewImg = $('.preview-img');
-                    const fileChooser = $('.file-chooser');
-            
-                    fileChooser.onchange = e => {
-                        const fileToUpload = e.target.files.item(0);
-                        const reader = new FileReader();
-            
-                        // evento disparado quando o reader terminar de ler 
-                        reader.onload = e => previewImg.src = e.target.result;
-            
-                        // solicita ao reader que leia o arquivo 
-                        // transformando-o para DataURL. 
-                        // Isso disparará o evento reader.onload.
-                        reader.readAsDataURL(fileToUpload);
-                    };
-                </script>
-            </div>
-          </section>
+        <h2 class="text-white"> Gostaria de ver quais filmes você já assistiu? </h2>
+        
+        <?php
 
-        <section class="filmes_split">
+            require_once 'db.php';
 
-          <section class="section_filmes">
-            <div class="form-group">
-                <label for="nomeFilme" class="text-white">Nome do filme:</label>
-                <input type="text" class="form-control text-gray bg-light" id="nomeFilme" name="nomeFilme" placeholder="Ex.: Shrek 2">
-            </div>
-          </section>
+            $consulta = $objBanco->query("SELECT nomeSerie, temporada, sinopseSerie, destinoFoto FROM series WHERE serieID > 0");
 
-          <section class="section_filmes">
-            <div class="form-group">
-                <label for="duracaoFilme" class="text-white">Duração do filme:</label>
-                <input class="bg-dark border-0 rounded text-white" type="time" id="duracaoFilme" name="duracaoFilme" min="00:00" max="30:00" required>
-            </div>
-          </section>
 
-          <section class="section_filmes">
-            <div class="form-group">
-                <label for="sinopseFilme" class="text-white">Sinopse do Filme:</label>
-                <textarea class="form-control text-gray bg-light" id="sinopseFilme" name="sinopseFilme" rows="6" placeholder="Ex.: Shrek e Fiona acabaram de voltar da lua de mel e vivem felizes em sua casa no pântano. O casal recebe um convite dos pais da princesa, que querem conhecer o novo genro, para um jantar no castelo. Eles ficaram sabendo que Fiona havia se casado com o seu verdadeiro amor, mas o que eles ainda não sabem é que este amor é um ogro mal-educado de mais de 300 quilos, que conta com um burro falante como melhor amigo."></textarea>
-            </div>
-          </section>
+            echo "<div class='lista_filmes'>";
+            while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                echo "<div class='filmes'>";
+                echo "<section style='color:white;' >";
+                echo "<h2 style=' font-weight: bold; font-size: 30px;'> {$linha['nomeSerie']} </h2>";
+                echo "<br><br>";
+                echo "<h3 style=' font-weight: bold; font-size: 30px;'> Temporada {$linha['temporada']} </h3>";
+                echo "<br><br>";
+                echo " <img src={$linha['destinoFoto']} width='200px' height='200px'> ";
+                echo "<br><br>";
+                echo "{$linha['sinopseFilme']}";
+                echo "<br><br>";
+                echo "</section>";
+                echo "</div>";
+            };
+            echo "</div>";
 
-          <section class="section_filmes">
-            <div class="form-group">
-                <input type="submit" value="Salvar">
-            </div>            
-          </section>
-           
-      </section>
-    </form>
+
+            ?>
+
       </div>
       </div>
     </main>
     <footer></footer>
   </body>
 </html>
+
+      
+      
