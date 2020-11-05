@@ -137,7 +137,7 @@
                 echo "<br><br>";
                 echo " <img src={$linha['destinoFoto']} width='200px' height='200px'> ";
                 echo "<br><br>";
-                echo "{$linha['sinopseFilme']}";
+                echo "{$linha['sinopseSerie']}";
                 echo "<br><br>";
                 echo "</section>";
                 echo "</div>";
