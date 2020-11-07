@@ -89,13 +89,13 @@
             <ul class="nav flex-column bg-white mb-0">
 
                 <li class="nav-item">
-                    <a href="..estatisticas.php" class="nav-link text-white font-italic">
+                    <a href=".estatisticas.php" class="nav-link text-white font-italic">
                         <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
                         Estatísticas
                     </a>
                  </li>
                 <li class="nav-item">
-                    <a href="..adicionar_filmes.php" class="nav-link text-white font-italic">
+                    <a href="adicionar_filmes.php" class="nav-link text-white font-italic">
                         <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
                         Adicionar Filmes
                     </a>

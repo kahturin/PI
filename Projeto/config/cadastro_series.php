@@ -4,7 +4,13 @@
 
     $nome_arquivo = $_FILES['arquivo']['name'];
 
-    $destino = '../imagens_capas_series/' . $nome_arquivo;
+    $variacao = rand(0, 1000000);
+
+    $extensao = pathinfo($nome_arquivo, PATHINFO_EXTENSION);
+
+    $nome_file = pathinfo($nome_arquivo, PATHINFO_FILENAME);
+
+    $destino = '../imagens_capas_series/'  . $nome_file . $variacao . '.' . $extensao;
 
     $nomeSerie = $_POST['nomeSerie'];
     $temporada = $_POST['temporada'];
