@@ -1,7 +1,6 @@
 <?php
     require_once 'db.php';
 
-    if ( session_status() !== PHP_SESSION_ACTIVE) {
 
     if((!isset ($_SESSION['email']) == true) and (!isset ($_SESSION['senha']) == true) )
     {
@@ -18,5 +17,3 @@
     }
     $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 
-
-}
