@@ -146,6 +146,7 @@
                         // Isso disparará o evento reader.onload.
                         reader.readAsDataURL(fileToUpload);
                     };
+                    </form>
                 </script>
             </div>
           </section>
@@ -193,7 +194,6 @@
           </section>
 
       </section>
-        </form>
       </div>
       </div>
     </main>
