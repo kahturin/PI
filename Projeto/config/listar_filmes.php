@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../css/style.css">
 <script src="../js/script.js"></script>
 <link rel="shortcut icon" href="../images/logo.png" />
-<title>Meus Filmes</title>
+<title>Filmes Assistidos</title>
     
     <script>
         function Checkfiles(){
@@ -50,7 +50,7 @@
                 <div class="vertical-nav" id="sidebar">
                     <div class="menu py-4 px-3 mb-4">
                         <div class="media d-flex align-items-center"><img
-                                src="..images/hulk.jpg"
+                                src="../images/hulk.jpg"
                                 width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                             <div class="media-body">
                                 <h4 class="m-0">Hulk</h4>
@@ -127,18 +127,20 @@
 
 
     echo "<div class='lista_filmes'>";
+
             while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
                 echo "<div class='filmes'>";
                 echo "<section style='color:white;' >";
-                echo "<h2 style=' font-weight: bold; font-size: 30px;'> {$linha['nomeFilme']} </h2>";
+                echo "<h2 style=' font-weight: bold; font-size: 25px;'> {$linha['nomeFilme']} </h2>";
                 echo "<br><br>";
                 echo " <img src={$linha['destino_foto']} width='200px' height='200px'> ";
                 echo "<br><br>";
-                echo "{$linha['sinopseFilme']}";
+                echo "<p style='font-size: 15px; ' > {$linha['sinopseFilme']} </p>";
                 echo "<br><br>";
                 echo "</section>";
                 echo "</div>";
             };
+
     echo "</div>";
 
         

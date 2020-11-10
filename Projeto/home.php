@@ -44,10 +44,14 @@
                         src="images/hulk.jpg"
                         width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                     <div class="media-body">
-                        <h4 class="m-0">Hulk</h4>
+                        <h4 class="m-0"> x </h4>
                         <p class="font-weight-light text-muted mb-0">Cinéfilo</p>
                     </div>
                 </div>
+                <a href="config/deslogar.php">
+                <i class="fas fa-sign-out-alt" style="color:white"> </i>
+                    Deslogar
+                </a>
             </div>
 
             <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Página Inicial</p>
