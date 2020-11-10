@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../css/style.css">
 <script src="../js/script.js"></script>
 <link rel="shortcut icon" href="../images/logo.png" />
-<title>Meus Filmes</title>
+<title>Séries Assistidas</title>
     
     <script>
         function Checkfiles(){
@@ -52,7 +52,7 @@
         <div class="vertical-nav" id="sidebar">
             <div class="menu py-4 px-3 mb-4">
                 <div class="media d-flex align-items-center"><img
-                        src="images/hulk.jpg"
+                        src="../images/hulk.jpg"
                         width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                     <div class="media-body">
                         <h4 class="m-0">Hulk</h4>
@@ -65,19 +65,19 @@
 
             <ul class="nav flex-column bg-light mb-0">
                 <li class="nav-item">
-                    <a href="..home.php" class="nav-link text-white font-italic">
+                    <a href="../home.php" class="nav-link text-white font-italic">
                         <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
                         Página Principal
                     </a>
                 </li>
                 <li class="nav-item">
-                <a href="..meus_filmes.php" class="nav-link text-white font-italic">
+                <a href="../meus_filmes.php" class="nav-link text-white font-italic">
                         <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
                         Meus Filmes
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="..minhas_series.php" class="nav-link text-white font-italic">
+                    <a href="../minhas_series.php" class="nav-link text-white font-italic">
                         <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
                         Minhas Séries
                     </a>
@@ -89,19 +89,19 @@
             <ul class="nav flex-column bg-white mb-0">
 
                 <li class="nav-item">
-                    <a href=".estatisticas.php" class="nav-link text-white font-italic">
+                    <a href="../estatisticas.php" class="nav-link text-white font-italic">
                         <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
                         Estatísticas
                     </a>
                  </li>
                 <li class="nav-item">
-                    <a href="adicionar_filmes.php" class="nav-link text-white font-italic">
+                    <a href="../adicionar_filmes.php" class="nav-link text-white font-italic">
                         <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
                         Adicionar Filmes
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="..adicionar_series.php" class="nav-link text-white font-italic">
+                    <a href="../adicionar_series.php" class="nav-link text-white font-italic">
                         <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
                         Adicionar Séries
                     </a>
@@ -131,19 +131,16 @@
             while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
                 echo "<div class='filmes'>";
                 echo "<section style='color:white;' >";
-                echo "<h2 style=' font-weight: bold; font-size: 30px;'> {$linha['nomeSerie']} </h2>";
-                echo "<br><br>";
-                echo "<h3 style=' font-weight: bold; font-size: 30px;'> Temporada {$linha['temporada']} </h3>";
-                echo "<br><br>";
+                echo "<h2 style=' font-weight: bold; font-size: 25px;'> {$linha['nomeSerie']} </h2>";
+                echo "<h3 style=' font-weight: bold; font-size: 20px;'> Temporada {$linha['temporada']} </h3>";
                 echo " <img src={$linha['destinoFoto']} width='200px' height='200px'> ";
                 echo "<br><br>";
-                echo "{$linha['sinopseSerie']}";
+                echo "<p style='font-size: 12px; ' > {$linha['sinopseSerie']} </p>";
                 echo "<br><br>";
                 echo "</section>";
                 echo "</div>";
             };
             echo "</div>";
-
 
             ?>
 
