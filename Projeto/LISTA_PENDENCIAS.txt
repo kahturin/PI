@@ -1,7 +1,5 @@
 bloquear acesso a paginas para usuario não logado
 
-expirar session após x quantidade de tempo
-
 rever relação do banco de dados (relação usuarios x filmes/series cadastrados)
 
 formatar exibição de filmes e series
