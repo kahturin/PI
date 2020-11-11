@@ -23,7 +23,7 @@
         
         <link rel="stylesheet" href="./css/style.css">
         <link rel="shortcut icon" href="./images/logo.png"/>
-        <title>Pojeto</title>
+        <title>Projeto</title>
     </head>
 
     <body>
