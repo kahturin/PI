@@ -1,9 +1,9 @@
-<?php
+    <?php
 
     require_once 'db.php';
 
-    if (isset($_POST['btnCadastrar']))
-    {    
+    if (isset($_POST['btnCadastrar'])){
+            
         $confirmaSenha = md5($_POST['confirmaSenha']);
         $senha = md5($_POST['senha']);
 
@@ -11,6 +11,8 @@
                                             (nome, email, senha)
                                         VALUES 
                                             ( :nome, :email, :senha)');
+        
+        //Substitui :nm e :wzap pelo valor enviado pelo usuário
         
         $objStmt->bindParam(':nome', $_POST['nome']);					
         $objStmt->bindParam(':email', $_POST['email']);	

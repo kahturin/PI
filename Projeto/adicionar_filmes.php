@@ -122,7 +122,7 @@
 
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
-        <h2 class="text-white"> O que você está assistindo? </h2>
+      <h2 class="text-white"> O que você está assistindo? </h2>
         <form action='config/cadastro_filmes.php' method='post' encType="multipart/form-data">
         <div class="box_filmes">
           <section class="upload_capa">
@@ -149,41 +149,41 @@
                         // Isso disparará o evento reader.onload.
                         reader.readAsDataURL(fileToUpload);
                     };
+                    </form>
                 </script>
             </div>
           </section>
 
-        <section class="filmes_split">
+          <section class="filmes_split">
 
-          <section class="section_filmes">
-            <div class="form-group">
-                <label for="nomeFilme" class="text-white">Nome do filme:</label>
-                <input type="text" class="form-control text-gray bg-light" id="nomeFilme" name="nomeFilme" placeholder="Ex.: Shrek 2">
-            </div>
-          </section>
+<section class="section_filmes">
+  <div class="form-group">
+      <label for="nomeFilme" class="text-white">Nome do filme:</label>
+      <input type="text" class="form-control text-gray bg-light" id="nomeFilme" name="nomeFilme" placeholder="Ex.: Shrek 2">
+  </div>
+</section>
 
-          <section class="section_filmes">
-            <div class="form-group">
-                <label for="duracaoFilme" class="text-white">Duração do filme:</label>
-                <input class="bg-dark border-0 rounded text-white" type="time" id="duracaoFilme" name="duracaoFilme" min="00:00" max="30:00" required>
-            </div>
-          </section>
+<section class="section_filmes">
+  <div class="form-group">
+      <label for="duracaoFilme" class="text-white">Duração do filme:</label>
+      <input class="bg-dark border-0 rounded text-white" type="time" id="duracaoFilme" name="duracaoFilme" min="00:00" max="30:00" required>
+  </div>
+</section>
 
-          <section class="section_filmes">
-            <div class="form-group">
-                <label for="sinopseFilme" class="text-white">Sinopse do Filme:</label>
-                <textarea class="form-control text-gray bg-light" id="sinopseFilme" name="sinopseFilme" rows="6" placeholder="Ex.: Shrek e Fiona acabaram de voltar da lua de mel e vivem felizes em sua casa no pântano. O casal recebe um convite dos pais da princesa, que querem conhecer o novo genro, para um jantar no castelo. Eles ficaram sabendo que Fiona havia se casado com o seu verdadeiro amor, mas o que eles ainda não sabem é que este amor é um ogro mal-educado de mais de 300 quilos, que conta com um burro falante como melhor amigo."></textarea>
-            </div>
-          </section>
+<section class="section_filmes">
+  <div class="form-group">
+      <label for="sinopseFilme" class="text-white">Sinopse do Filme:</label>
+      <textarea class="form-control text-gray bg-light" id="sinopseFilme" name="sinopseFilme" rows="6" placeholder="Ex.: Shrek e Fiona acabaram de voltar da lua de mel e vivem felizes em sua casa no pântano. O casal recebe um convite dos pais da princesa, que querem conhecer o novo genro, para um jantar no castelo. Eles ficaram sabendo que Fiona havia se casado com o seu verdadeiro amor, mas o que eles ainda não sabem é que este amor é um ogro mal-educado de mais de 300 quilos, que conta com um burro falante como melhor amigo."></textarea>
+  </div>
+</section>
 
-          <section class="section_filmes">
-            <div class="form-group">
-                <input type="submit" value="Salvar">
-            </div>            
-          </section>
-           
-      </section>
-    </form>
+<section class="section_filmes">
+  <div class="form-group">
+      <input type="submit" value="Salvar">
+  </div>            
+</section>
+ 
+</section>
       </div>
       </div>
     </main>

@@ -22,10 +22,10 @@
    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
    crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="./css/style.css">
-<script src="./js/script.js"></script>
-<link rel="shortcut icon" href="./images/logo.png" />
-<title>Meus Filmes</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="../js/script.js"></script>
+<link rel="shortcut icon" href="../images/logo.png" />
+<title>Estatísticas</title>
     
     <script>
         function Checkfiles(){
@@ -45,94 +45,107 @@
 
   <body class="imagem-fundo banner-lg d-flex align-items-center">
     <header>
-
-    </header>
-
-    <main>
-        <div class="vertical-nav" id="sidebar">
-            <div class="menu py-4 px-3 mb-4">
-                <div class="media d-flex align-items-center"><img
-                        src="images/hulk.jpg"
-                        width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
-                    <div class="media-body">
-                        <h4 class="m-0">Hulk</h4>
-                        <p class="font-weight-light text-muted mb-0">Cinéfilo</p>
+            </header>
+            <main>
+                <div class="vertical-nav" id="sidebar">
+                    <div class="menu py-4 px-3 mb-4">
+                        <div class="media d-flex align-items-center"><img
+                                src="../images/hulk.jpg"
+                                width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+                            <div class="media-body">
+                                <h4 class="m-0">Hulk</h4>
+                                <p class="font-weight-light text-muted mb-0">Cinéfilo</p>
+                            </div>
+                        </div>
                     </div>
+        
+                    <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Página Inicial</p>
+        
+                    <ul class="nav flex-column bg-light mb-0">
+                        <li class="nav-item">
+                            <a href="../home.php" class="nav-link text-white font-italic">
+                                <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
+                                Página Principal
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="../meus_filmes.php" class="nav-link text-white font-italic">
+                                <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
+                                Meus Filmes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../minhas_series.php" class="nav-link text-white font-italic">
+                                <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
+                                Minhas Séries
+                            </a>
+                        </li>
+                    </ul>
+        
+                    <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Entretenimento</p>
+        
+                    <ul class="nav flex-column bg-white mb-0">
+        
+                        <li class="nav-item">
+                            <a href="../estatisticas.php" class="nav-link text-white font-italic">
+                                <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
+                                Estatísticas
+                            </a>
+                         </li>
+                        <li class="nav-item">
+                            <a href="../adicionar_filmes.php" class="nav-link text-white font-italic">
+                                <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
+                                Adicionar Filmes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../adicionar_series.php" class="nav-link text-white font-italic">
+                                <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
+                                Adicionar Séries
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
+        
+                <div class="page-content p-5" id="content">
+                    <button id="sidebarCollapse" type="button"
+                        class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small
+                            class="text-uppercase font-weight-bold">Alternar</small></button>
+        
+                      
+        
+              <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        
+                <h2 class="text-white">  Gostaria de saber quanto tempo já gastou assistindo?  </h2>
 
-            <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Página Inicial</p>
-
-            <ul class="nav flex-column bg-light mb-0">
-                <li class="nav-item">
-                    <a href="home.php" class="nav-link text-white font-italic">
-                        <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
-                        Página Principal
-                    </a>
-                </li>
-                <li class="nav-item">
-                <a href="meus_filmes.php" class="nav-link text-white font-italic">
-                        <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
-                        Meus Filmes
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="minhas_series.php" class="nav-link text-white font-italic">
-                        <i class="fa fa-th-large mr-3 fa-fw" style="color:white"></i>
-                        Minhas Séries
-                    </a>
-                </li>
-            </ul>
-
-            <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">Entretenimento</p>
-
-            <ul class="nav flex-column bg-white mb-0">
-
-                <li class="nav-item">
-                    <a href="estatisticas.php" class="nav-link text-white font-italic">
-                        <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
-                        Estatísticas
-                    </a>
-                 </li>
-                <li class="nav-item">
-                    <a href="adicionar_filmes.php" class="nav-link text-white font-italic">
-                        <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
-                        Adicionar Filmes
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="adicionar_series.php" class="nav-link text-white font-italic">
-                        <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
-                        Adicionar Séries
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="page-content p-5" id="content">
-            <button id="sidebarCollapse" type="button"
-                class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small
-                    class="text-uppercase font-weight-bold">Alternar</small></button>
-
-              
-
-      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-
-        <h2 class="text-white"> Gostaria de saber quanto tempo já gastou assistindo? </h2>
-       
-       <?php 
+                <p style="color: white;"> 
+                <?php 
          
          require_once 'db.php';
+
          $horasAssistidas = $objBanco->query("SELECT SUM(duracaoFilme) AS totalHoras FROM filmes");
-         $somaHoras = date("H:i", $horasAssistidas);
-         while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-            echo "O tempo que você já passou assistindo filmes é {$somaHoras}";
+        
+         
+         while ($linha = $horasAssistidas->fetch(PDO::FETCH_ASSOC)) {
+            echo "O tempo que você já passou assistindo filmes é {$linha['totalHoras']}";
+           
+        };
+
+       ?>
+       <?php 
+        require_once 'db.php';
+
+        $horasAssistidas = $objBanco->query("SELECT (duracaoEP * numEPS) AS total_horas FROM series WHERE id == 1");
+        while ($linha = $horasAssistidas->fetch(PDO::FETCH_ASSOC)) {
+            echo "O tempo que você já passou assistindo séries é {$linha['total_horas']}";
         };
        ?>
+       </p>
 
-      </div>
-      </div>
-    </main>
-    <footer></footer>
-  </body>
-</html>
+
+              </div>
+              </div>
+            </main>
+            <footer></footer>
+          </body>
+        </html>

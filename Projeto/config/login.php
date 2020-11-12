@@ -12,13 +12,16 @@
         
         $objStmt->bindParam(':email', $email);	
         $objStmt->bindParam(':senha', $senha);
+        $objStmt->bindParam('', $nome_usuario);
+       
 
-		$objStmt->execute();
+        $objStmt->execute();
 
         if($objStmt->rowCount() == 1)
         {
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
+            $_SESSION['nome_usuario'] = $nome_usuario;
 
             header("location: ../home.php");
             die();
