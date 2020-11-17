@@ -117,31 +117,33 @@
               <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         
                 <h2 class="text-white">  Gostaria de saber quanto tempo já gastou assistindo?  </h2>
+<div style='padding: 65px;'>
+                <h3 style="color: white;"> 
 
-                <p style="color: white;"> 
                 <?php 
          
          require_once 'db.php';
 
-         $horasAssistidas = $objBanco->query("SELECT SUM(duracaoFilme) AS totalHoras FROM filmes");
+         $horasAssistidas = $objBanco->query("SELECT duracaoFilme AS totalHoras FROM filmes");
+         
         
          
          while ($linha = $horasAssistidas->fetch(PDO::FETCH_ASSOC)) {
-            echo "O tempo que você já passou assistindo filmes é {$linha['totalHoras']}";
+            echo " <p style='color:white;'> O tempo que você já passou assistindo filmes é {$linha['totalHoras']} </p>";
            
+        };?>
+        </h3>
+       </div>
+       <h3 style="color: white;"> 
+       <div style='padding: 65px;'>
+            <?php 
+        $horasAssistidas2 = $objBanco->query("SELECT SUM(duracaoEP * numEPS) AS 'Total_horas' FROM series");
+        while ($linha = $horasAssistidas2->fetch(PDO::FETCH_ASSOC)) {
+            echo " <p style='color:white;'> O tempo que você já passou assistindo séries é {$linha['Total_horas']} </p>";
         };
-
-       ?>
-       <?php 
-        require_once 'db.php';
-
-        $horasAssistidas = $objBanco->query("SELECT (duracaoEP * numEPS) AS total_horas FROM series WHERE id == 1");
-        while ($linha = $horasAssistidas->fetch(PDO::FETCH_ASSOC)) {
-            echo "O tempo que você já passou assistindo séries é {$linha['total_horas']}";
-        };
-       ?>
-       </p>
-
+        ?>
+       </h3>
+       </div>
 
               </div>
               </div>

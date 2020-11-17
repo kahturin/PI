@@ -12,7 +12,6 @@
         
         $objStmt->bindParam(':email', $email);	
         $objStmt->bindParam(':senha', $senha);
-        $objStmt->bindParam('', $nome_usuario);
        
 
         $objStmt->execute();
@@ -21,7 +20,6 @@
         {
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
-            $_SESSION['nome_usuario'] = $nome_usuario;
 
             header("location: ../home.php");
             die();

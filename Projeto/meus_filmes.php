@@ -123,10 +123,12 @@
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
         <h2 class="text-white"> Gostaria de ver quais filmes você já assistiu? </h2>
+
+
         <form action='config/listar_filmes.php' method='post' encType="multipart/form-data">
         <input type='submit' value='Sim'>
         </form>
-      </div>
+        
       </div>
     </main>
     <footer></footer>
