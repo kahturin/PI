@@ -31,7 +31,7 @@
     <title>Página Principal</title>
 </head>
 
-<body class="imagem-fundo banner-lg d-flex align-items-center">
+<body class="imagem-fundo -lg d-flex align-items-center">
 
     <header>
 
