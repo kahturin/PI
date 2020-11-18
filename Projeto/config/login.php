@@ -12,8 +12,9 @@
         
         $objStmt->bindParam(':email', $email);	
         $objStmt->bindParam(':senha', $senha);
+       
 
-		$objStmt->execute();
+        $objStmt->execute();
 
         if($objStmt->rowCount() == 1)
         {

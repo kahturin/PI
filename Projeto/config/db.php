@@ -1,6 +1,6 @@
 <?php
 
-define( 'DSN', 'mysql:dbname=banco_filmes;host=localhost');
+define( 'DSN', 'mysql:dbname=pi_segundos;host=localhost');
 define( 'DB_USER', 'root');
 define( 'DB_PASS', '');
 

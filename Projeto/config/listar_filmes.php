@@ -118,7 +118,9 @@
         
                 <h2 class="text-white"> Gostaria de ver quais filmes você já assistiu? </h2>
 
-      
+                <div class="wrapper">
+        <div class="scrolls">
+
       <?php
 
             require_once 'db.php';
@@ -145,6 +147,8 @@
 
         
         ?>
+  </div>
+  </div>
 
 
               </div>

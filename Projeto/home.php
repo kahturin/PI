@@ -44,8 +44,15 @@
                         src="images/hulk.jpg"
                         width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                     <div class="media-body">
-                        <h4 class="m-0"> x </h4>
-                        <p class="font-weight-light text-muted mb-0">Cinéfilo</p>
+                        <h4 class="m-0" >  
+                        
+                        <?php 
+                            echo $_SESSION['nome_usuario'];
+                        ?> 
+                        
+                        </h4>
+                        <p class="font-weight-light text-muted mb-0">
+                        </p>
                     </div>
                 </div>
                 <a href="config/deslogar.php">
