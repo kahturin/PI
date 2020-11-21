@@ -35,14 +35,14 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav menu mr-auto">
-                      <li class="nav-item">
-                        <a href="#" data-toggle="modal" data-target="#cadastro">Cadastre-se</span></a>
+                    <ul class="navbar-nav mr-auto">
+                      <li>
+                        <a href="#" data-toggle="modal" data-target="#cadastro">Cadastre-se</a>
                       </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0" action="./config/login.php" method="POST">
-                      <input class="form-control mr-sm-2" name="email" type="email" placeholder="Email">
-                      <input class="form-control mr-sm-2" name="senha" type="password" placeholder="Senha">
+                      <input class="form-control mr-sm-2" style="background-color:transparent" name="email" type="email" placeholder="Email">
+                      <input class="form-control mr-sm-2" style="background-color:transparent" name="senha" type="password" placeholder="Senha">
                       <button name="btnEntrar" class="btn btn-outline-light my-2 my-sm-0" type="submit">Entrar</button>
                     </form>
                 </div>
@@ -74,7 +74,7 @@
                                 
                                 <div class="modal-footer">
                                     <!-- <button type="button" name="btnFechar" class="btn btn-secondary" data-dismiss="modal">Fechar</button> -->
-                                    <button type="submit" name="btnCadastrar" class="btn btn-primary">Cadastrar</button>
+                                    <button type="submit" name="    " class="btn btn-primary">Cadastrar</button>
                                 </div>
                             </form>
                         </div>
@@ -94,20 +94,21 @@
                     <span class="h2 d-block text-center text-white">    
                         Que tal simular quanto tempo de vida você já
                         gastou vendo filmes e séries e descobrir se você tem vida social ou não?
-                        Cadastre-se.
+                        É simples
+                        <input type="submit" value="Cadastre-se">
                     </span>
                 </div>
             </section>            
             
             <section class="banner-vader banner-lg d-flex align-items-center"> 
-                <span class="h2 d-block text-white mx-auto">
-                    Pai ta on.
+                <span class="h2 d-block text-white mx-auto text-center">
+                    Aqui na #nomeDoSite você pode interagir com seus amigos e comartilhar diariamente com eles sobre qual série está te deixando de cabelos em pé
                 </span>
             </section>
 
             <section class="banner-chefao banner-lg d-flex align-items-center"> 
                 <span class="h2 d-block text-white mx-auto">
-                    Pai ta on.
+                    Venha fazer parte da nossa rede. 
                 </span>
             </section>
         </main>

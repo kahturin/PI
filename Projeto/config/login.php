@@ -5,7 +5,7 @@
 
 	if(isset($_POST['btnEntrar']))
 	{
-        $email = $_POST['email'];
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
         $senha = $_POST['senha'];
 
         $objStmt = $objBanco->prepare('	SELECT * FROM usuario WHERE email = :email AND senha = :senha');
