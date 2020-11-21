@@ -130,7 +130,7 @@
                     <img class="preview-img">    
                       <div class="file-chooser fileUpload">
                         <span>Escolher Capa</span>
-                        <input type="file" class="upload" accept="image/*" name="arquivo"> 
+                        <input type="file" class="upload" accept="image/*" name="arquivo" id="capaFilme"> 
                       </div>
                 <script>
                     const $ = document.querySelector.bind(document);
@@ -149,7 +149,6 @@
                         // Isso disparará o evento reader.onload.
                         reader.readAsDataURL(fileToUpload);
                     };
-                    </form>
                 </script>
             </div>
           </section>
@@ -182,7 +181,7 @@
       <input type="submit" value="Salvar">
   </div>            
 </section>
- 
+                </form>
 </section>
       </div>
       </div>

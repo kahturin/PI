@@ -1,6 +1,7 @@
 <?php
-
     require_once 'db.php';     
+
+    require_once 'session.php';
 
     $nome_arquivo = $_FILES['arquivo']['name'];
 
@@ -15,11 +16,9 @@
     $nomeFilme = $_POST['nomeFilme'];
     $duracaoFilme = $_POST['duracaoFilme'];
     $sinopseFilme = $_POST['sinopseFilme'];
-    
     $arquivo_tmp = $_FILES['arquivo']['tmp_name'];
 
     move_uploaded_file( $arquivo_tmp, $destino);
-
 
     try{
     $stmt = $objBanco->prepare('INSERT INTO filmes ( nomeFilme, duracaoFilme, sinopseFilme, destino_foto) VALUES( :nomeFilme, :duracaoFilme, :sinopseFilme, :destino_foto)');

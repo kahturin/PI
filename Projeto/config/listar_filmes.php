@@ -125,7 +125,9 @@
 
             require_once 'db.php';
 
-            $consulta = $objBanco->query("SELECT nomeFilme, sinopseFilme, destino_foto FROM filmes WHERE filmeID > 0");
+            $consulta = $objBanco->query("SELECT nomeFilme, sinopseFilme, destino_foto 
+                                          FROM filmes AS F INNER JOIN usuario AS U 
+                                          ON F.userID = U.userID");
 
 
     echo "<div class='lista_filmes'>";
