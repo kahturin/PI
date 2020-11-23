@@ -8,12 +8,11 @@
         $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
         $senha = $_POST['senha'];
 
-        $objStmt = $objBanco->prepare('SELECT userID, nome, senha FROM usuario WHERE email = :email');
-        
-        $objStmt->bindParam(':email', $email);
+        $objStmt = $objBanco->prepare("SELECT userID, nome, senha FROM usuario WHERE email = $email");
         $reg = $objStmt->fetch(PDO::FETCH_ASSOC);
+        $hash = $reg['senha'];
 
-        if($objStmt->rowCount() == 1)
+        if(password_verify( $senha, $hash))
         {
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
