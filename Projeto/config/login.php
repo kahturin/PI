@@ -8,18 +8,17 @@
         $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
         $senha = $_POST['senha'];
 
-        $objStmt = $objBanco->prepare('	SELECT * FROM usuario WHERE email = :email AND senha = :senha');
+        $objStmt = $objBanco->prepare('SELECT userID, nome, senha FROM usuario WHERE email = :email');
         
-        $objStmt->bindParam(':email', $email);	
-        $objStmt->bindParam(':senha', $senha);
-       
-
-        $objStmt->execute();
+        $objStmt->bindParam(':email', $email);
+        $reg = $objStmt->fetch(PDO::FETCH_ASSOC);
 
         if($objStmt->rowCount() == 1)
         {
             $_SESSION['email'] = $email;
             $_SESSION['senha'] = $senha;
+            $_SESSION['nome'] = $reg['nome'];
+            $_SESSION['id'] = $reg['userID'];
 
             header("location: ../home.php");
             die();
