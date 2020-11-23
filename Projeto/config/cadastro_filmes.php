@@ -21,7 +21,8 @@
     move_uploaded_file( $arquivo_tmp, $destino);
 
     try{
-    $stmt = $objBanco->prepare('INSERT INTO filmes ( nomeFilme, duracaoFilme, sinopseFilme, destino_foto) VALUES( :nomeFilme, :duracaoFilme, :sinopseFilme, :destino_foto)');
+    $stmt = $objBanco->prepare('INSERT INTO filmes ( nomeFilme, duracaoFilme, sinopseFilme, destino_foto) 
+                                VALUES( :nomeFilme, :duracaoFilme, :sinopseFilme, :destino_foto)');
     $stmt->execute(array(
       ':nomeFilme' => $nomeFilme,
       ':duracaoFilme' => $duracaoFilme,

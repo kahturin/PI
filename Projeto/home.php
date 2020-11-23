@@ -1,6 +1,6 @@
 <?php
     require './config/session.php';
-
+    var_dump();
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +47,10 @@
                         <h4 class="m-0" >  
                         
                         <?php 
-                            echo $_SESSION['nome_usuario'];
+                            $id = $_SESSION['id'];
+                            $objStmt = $objBanco->prepare(" SELECT nome FROM usuario WHERE userID = '$id' ");
+                            $objStmt->execute();
+                            echo "<p style='color: white;'> $id </p>";
                         ?> 
                         
                         </h4>

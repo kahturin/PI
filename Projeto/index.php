@@ -113,7 +113,7 @@
 
         <footer class="footer">
             <div class="container">
-				<span>Feito com amor e soco na cara</span>
+				<span>Não ta dando problema mas também não tá dando errado</span>
 			</div>
         </footer>
     </body>

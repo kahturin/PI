@@ -23,7 +23,8 @@
     move_uploaded_file( $arquivo_tmp, $destino);
 
     try{
-    $stmt = $objBanco->prepare('INSERT INTO series ( nomeSerie, temporada, duracaoEP, numEPS, sinopseSerie, destinoFoto) VALUES ( :nomeSerie, :temporada, :duracaoEP, :numEPS, :sinopseSerie, :destinoFoto)');
+    $stmt = $objBanco->prepare('INSERT INTO series ( nomeSerie, temporada, duracaoEP, numEPS, sinopseSerie, destinoFoto) 
+                                VALUES ( :nomeSerie, :temporada, :duracaoEP, :numEPS, :sinopseSerie, :destinoFoto)');
     $stmt->execute(array(
       ':nomeSerie' => $nomeSerie,
       ':temporada' => $temporada,
