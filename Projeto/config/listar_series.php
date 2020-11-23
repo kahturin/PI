@@ -128,28 +128,39 @@
 
             require_once 'db.php';
 
-            $consulta = $objBanco->query("SELECT nomeSerie, temporada, sinopseSerie, destinoFoto 
+            $consulta = $objBanco->query("SELECT nomeSerie, temporada, duracaoEP, numEPS, sinopseSerie, destinoFoto 
                                           FROM series AS S INNER JOIN usuario AS U
                                           ON S.userID = U.userID");
 
 
-            echo "<div class='lista_filmes'>";
-            while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-                echo "<div class='filmes'>";
-                echo "<section style='color:white;' >";
-                echo "<h2 style=' font-weight: bold; font-size: 25px;'> {$linha['nomeSerie']} </h2>";
-                echo "<h3 style=' font-weight: bold; font-size: 20px;'> Temporada {$linha['temporada']} </h3>";
-                echo " <img src={$linha['destinoFoto']} width='200px' height='200px'> ";
-                echo "<br><br>";
-                echo "<p style='font-size: 12px; ' > {$linha['sinopseSerie']} </p>";
-                echo "<br><br>";
-                echo "</section>";
-                echo "</div>";
-            };
-            echo "</div>";
+            
+    echo "<div class='lista_filmes'>";
+
+    while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+        echo "<div class='filmes'>";
+        echo "<section style='color:white;' >";
+        echo "<h2> {$linha['nomeSerie']} </h2>";
+        echo "<br>";
+        echo "<img src={$linha['destinoFoto']}>";
+        echo "<br>";
+        echo "<a> Temporada {$linha['temporada']} </a>";
+        echo "<br>";
+        echo "<a> Duração média de cada episódio {$linha['duracaoEP']} </a>";
+        echo "<br>";
+        echo "<a> Número de episódios:  {$linha['numEPS']} </a>";
+        echo "<br>";
+        echo "<p> {$linha['sinopseSerie']} </p>";
+        echo "<br><br>";
+        echo "<div class='linha'> </div>";
+        echo "</section>";
+        echo "</div>";
+    };
+
+echo "</div>";
 
             ?>
 </div>
+
       </div>
       </div>
       </div>

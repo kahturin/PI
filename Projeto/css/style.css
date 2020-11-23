@@ -342,35 +342,50 @@ width: 80%;
 }
 
 .lista_filmes{
-  display: flex;
-  flex-direction: row;
-  width: auto;
-  height: auto;
-
-  padding: 10px;
+  width: 100%;
+  padding: 10px; 
 }
 
 .filmes{
 display: flex;
-flex-direction: row;
 width: 100%;
-height: 100%;
+height: 80%;
 text-align: center;
 align-items: center;
-align-content: center;
-justify-content: center;
 padding: 10px;
 }
 
 .filmes img{
-  width: 50%;
-  height: 50%;
+  display: flex;
+  width: 20%;
+  height: 20%;
 }
 
 
+.filmes p{
+  display: flex;
+  font-size: 15px;
+  width: 50%;
+  text-align: justify;
+}
 
+.filmes a{
+  display: flex;
+  font-size: 15px;
+  font-weight: bold;
+  width: 50%;
+  text-align: justify;
+}
 
+.filmes h2{
+  display: flex;
+}
 
+.linha{
+  width: 100%;
+  background-color: white;
+  height: 1px;
+}
 
 
 .scrolls {

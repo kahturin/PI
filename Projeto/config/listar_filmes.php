@@ -125,7 +125,7 @@
 
             require_once 'db.php';
 
-            $consulta = $objBanco->query("SELECT nomeFilme, sinopseFilme, destino_foto 
+            $consulta = $objBanco->query("SELECT nomeFilme, sinopseFilme, duracaoFilme,destino_foto 
                                           FROM filmes AS F INNER JOIN usuario AS U 
                                           ON F.userID = U.userID");
 
@@ -135,12 +135,15 @@
             while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
                 echo "<div class='filmes'>";
                 echo "<section style='color:white;' >";
-                echo "<h2 style=' font-weight: bold; font-size: 25px;'> {$linha['nomeFilme']} </h2>";
+                echo "<h2> {$linha['nomeFilme']} </h2>";
+                echo "<br>";
+                echo "<img src={$linha['destino_foto']}>";
+                echo "<br>";
+                echo "<a> Duração do filme: {$linha['duracaoFilme']} </a>";
+                echo "<br>";
+                echo "<p> {$linha['sinopseFilme']} </p>";
                 echo "<br><br>";
-                echo " <img src={$linha['destino_foto']} width='200px' height='200px'> ";
-                echo "<br><br>";
-                echo "<p style='font-size: 15px; ' > {$linha['sinopseFilme']} </p>";
-                echo "<br><br>";
+                echo "<div class='linha'> </div>";
                 echo "</section>";
                 echo "</div>";
             };
