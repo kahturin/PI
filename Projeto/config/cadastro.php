@@ -12,8 +12,6 @@
                                         VALUES 
                                             ( :nome, :email, :senha)');
         
-        //Substitui :nm e :wzap pelo valor enviado pelo usuário
-        
         $objStmt->bindParam(':nome', $_POST['nome']);					
         $objStmt->bindParam(':email', $_POST['email']);	
         $objStmt->bindParam(':senha', $_POST['senha']);

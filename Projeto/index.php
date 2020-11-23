@@ -37,20 +37,20 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                       <li>
-                        <a href="#" data-toggle="modal" data-target="#cadastro">Cadastre-se</a>
+                        <a href="#"  data-toggle="modal" data-target="#cadastro">Cadastre-se</a>
                       </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0" action="./config/login.php" method="POST">
-                      <input class="form-control mr-sm-2" style="background-color:transparent" name="email" type="email" placeholder="Email">
-                      <input class="form-control mr-sm-2" style="background-color:transparent" name="senha" type="password" placeholder="Senha">
+                      <input class="form-control mr-sm-2" style="background-color: transparent; color: white;" name="email" type="email" placeholder="Email">
+                      <input class="form-control mr-sm-2" style="background-color: transparent; color: white;" name="senha" type="password" placeholder="Senha">
                       <button name="btnEntrar" class="btn btn-outline-light my-2 my-sm-0" type="submit">Entrar</button>
                     </form>
                 </div>
             </nav>
 
             <!-- Modal de Cadastro -->
-            <div class="modal fade" id="cadastro" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
+            <div class="modal fade" id="cadastro" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
                     <div class="modal-content bg-dark text-white">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Faça seu Cadastro</h5>
@@ -73,8 +73,7 @@
                                 <input id="confirmaSenha" name="confirmaSenha" class="form-control mr-sm-2" type="password" placeholder="Confirme sua senha" required>
                                 
                                 <div class="modal-footer">
-                                    <!-- <button type="button" name="btnFechar" class="btn btn-secondary" data-dismiss="modal">Fechar</button> -->
-                                    <button type="submit" name="    " class="btn btn-primary">Cadastrar</button>
+                                    <button type="submit" name="btnCadastrar" class="btn btn-primary">Cadastrar</button>
                                 </div>
                             </form>
                         </div>
@@ -95,7 +94,6 @@
                         Que tal simular quanto tempo de vida você já
                         gastou vendo filmes e séries e descobrir se você tem vida social ou não?
                         É simples
-                        <input type="submit" value="Cadastre-se">
                     </span>
                 </div>
             </section>            
