@@ -1,11 +1,7 @@
 
-rever relação do banco de dados (relação usuarios x filmes/series cadastrados)
-
-exibição de tempo nas estatisticas
-
 bloquear acesso a paginas para usuario não logado
 
-edição no header para o usuario ver seu nome quando logar 
-
 formatação da exibição de tempo nas estatisticas
+
+pagina para usuario mudar seus dados / por foto de perfil
 
