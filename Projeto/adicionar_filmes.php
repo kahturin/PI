@@ -55,7 +55,12 @@
                         src="images/hulk.jpg"
                         width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                     <div class="media-body">
-                        <h4 class="m-0">Hulk</h4>
+                        <h4 class="m-0">          
+                        <?php 
+                            $nome_usuario = $_SESSION['nome'];
+                            echo " <p> $nome_usuario </p>";
+                        ?> 
+                                </h4>
                         <p class="font-weight-light text-muted mb-0">Cinéfilo</p>
                     </div>
                 </div>

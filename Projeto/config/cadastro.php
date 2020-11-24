@@ -6,8 +6,14 @@
             
         $senha = $_POST['senha'];
         $confirmaSenha = $_POST['confirmaSenha'];
+        
+        if($senha == $confirmaSenha){
+
 
         $senha = trim($senha);
+
+        
+        $senha = password_hash( $senha, PASSWORD_DEFAULT);
 
         $objStmt = $objBanco->prepare('	INSERT INTO usuario 
                                             (nome, email, senha)
@@ -19,7 +25,7 @@
         $objStmt->bindParam(':senha', $senha);
         
         //Executo
-        if($senha == $confirmaSenha){
+ 
             if ( $objStmt->execute() ) {
         
                 print "<script language='javascript' type='text/javascript'>alert('Cadastrado com sucesso!');</script>";
