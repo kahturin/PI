@@ -11,7 +11,7 @@
 
     $nome_file = pathinfo($nome_arquivo, PATHINFO_FILENAME);
 
-    $destino = '../imagens_capas_filmes/' . $nome_file . $variacao . '.' . $extensao;
+    $destino = 'imagens_capas_filmes/' . $nome_file . $variacao . '.' . $extensao;
 
     $idUsuario = $_SESSION['id'];
     

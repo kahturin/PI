@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <script src="./js/script.js"></script>
 <link rel="shortcut icon" href="./images/logo.png" />
-<title>Meus Filmes</title>
+<title>Minhas Séries</title>
     
     <script>
         function Checkfiles(){
@@ -55,17 +55,15 @@
                         src="images/hulk.jpg"
                         width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                     <div class="media-body">
-                        <h4 class="m-0">          <?php 
-                                    $nome_usuario = $_SESSION['nome'];
-                                    echo " <p> $nome_usuario </p>";
-                                ?> </h4>
+                        <h4 class="m-0">          
+                        <?php 
+                            $nome_usuario = $_SESSION['nome'];
+                            echo " <a href='meu_perfil.php'> $nome_usuario </a>";
+                        ?>     
+                    </h4>
                         <p class="font-weight-light text-muted mb-0">Cinéfilo</p>
                     </div>
                 </div>
-                <a href="config/deslogar.php">
-                <i class="fas fa-sign-out-alt" style="color:white"> </i>
-                    Deslogar
-                </a>
             </div>
 
             <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Página Inicial</p>
@@ -113,6 +111,12 @@
                         Adicionar Séries
                     </a>
                 </li>
+                <li class="nav-item" style=" padding-top: 75%;">
+                    <a href="config/deslogar.php" class="nav-link text-white font-italic">
+                        <i class="fa fa-sign-out" style="color:white"></i>
+                        Sair
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -126,9 +130,44 @@
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
         <h2 class="text-white"> Gostaria de ver quais séries você já maratonou? </h2>
-        <form action='config/listar_series.php' method='post' encType="multipart/form-data">
-        <input type='submit' value='Sim'>
-        </form>
+
+        
+        <?php
+
+            require_once 'config/db.php';
+
+            $consulta = $objBanco->query("SELECT nomeSerie, temporada, duracaoEP, numEPS, sinopseSerie, destinoFoto 
+                                          FROM series AS S INNER JOIN usuario AS U
+                                          ON S.userID = U.userID");
+
+
+            
+    echo "<div class='lista_filmes'>";
+
+    while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+        echo "<div class='filmes'>";
+        echo "<section style='color:white;' >";
+        echo "<h2> {$linha['nomeSerie']} </h2>";
+        echo "<br>";
+        echo "<img src={$linha['destinoFoto']}>";
+        echo "<br>";
+        echo "<a> Temporada {$linha['temporada']} </a>";
+        echo "<br>";
+        echo "<a> Duração média de cada episódio {$linha['duracaoEP']} </a>";
+        echo "<br>";
+        echo "<a> Número de episódios:  {$linha['numEPS']} </a>";
+        echo "<br>";
+        echo "<p> {$linha['sinopseSerie']} </p>";
+        echo "<br><br>";
+        echo "<div class='linha'> </div>";
+        echo "</section>";
+        echo "</div>";
+    };
+
+echo "</div>";
+
+            ?>
+
       </div>
       </div>
     </main>

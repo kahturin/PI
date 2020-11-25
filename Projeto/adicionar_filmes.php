@@ -58,16 +58,12 @@
                         <h4 class="m-0">          
                         <?php 
                             $nome_usuario = $_SESSION['nome'];
-                            echo " <p> $nome_usuario </p>";
+                            echo " <a href='meu_perfil.php'> $nome_usuario </a>";
                         ?> 
                                 </h4>
                         <p class="font-weight-light text-muted mb-0">Cinéfilo</p>
                     </div>
                 </div>
-                <a href="config/deslogar.php">
-                <i class="fas fa-sign-out-alt" style="color:white"> </i>
-                    Deslogar
-                </a>
             </div>
 
             <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Página Inicial</p>
@@ -113,6 +109,12 @@
                     <a href="adicionar_series.php" class="nav-link text-white font-italic">
                         <i class="fa fa-cubes mr-3 fa-fw" style="color:white"></i>
                         Adicionar Séries
+                    </a>
+                </li>
+                <li class="nav-item" style=" padding-top: 75%;">
+                    <a href="config/deslogar.php" class="nav-link text-white font-italic">
+                        <i class="fa fa-sign-out" style="color:white"></i>
+                        Sair
                     </a>
                 </li>
             </ul>

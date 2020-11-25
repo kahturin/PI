@@ -1,4 +1,13 @@
 /*Menu*/
+
+a{
+  color: white;
+}
+
+a:visited {
+  color: white;
+}
+
 a:link
 {
     text-decoration: none;
@@ -7,7 +16,7 @@ a:link
 a:hover 
 {
     text-decoration: none;  
-	color:#FFFFFF;
+	  color:#FFFFFF;
     font-weight: bold;
 }
 
@@ -249,11 +258,6 @@ p{
     color: white;
 }
 
-.preview-img{
-  width: 400px;
-  height: 500px;
-}
-
 .box_filmes{
   display: flex;
   width: 150%;
@@ -311,7 +315,12 @@ width: 80%;
   width: 80%;
   }
   
-
+  
+  .preview-img{
+    width: 400px;
+    height: 500px;
+  }
+  
 .fileUpload {
   position: relative; 
   overflow: hidden; 
@@ -406,8 +415,20 @@ padding: 10px;
   vertical-align:top;
 }
 
+.flex{
+  display: flex;
+}
 
+.menu_perfil{
+  width: 100%;
+  height: 100%;
+}
 
+.clmns_perfil{
+  display: flex;
+  flex-flow: row;
+  width: 50%;
+}
 
 
 

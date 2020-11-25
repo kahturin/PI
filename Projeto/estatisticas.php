@@ -1,5 +1,6 @@
 <?php
     require 'config/session.php';
+    require_once 'config/db.php';
 ?>
 
 <!DOCTYPE html>
@@ -55,10 +56,12 @@
                         src="images/hulk.jpg"
                         width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                     <div class="media-body">
-                        <h4 class="m-0">           <?php 
-                                    $nome_usuario = $_SESSION['nome'];
-                                    echo " <p> $nome_usuario </p>";
-                                ?>  </h4>
+                        <h4 class="m-0">           
+                        <?php 
+                            $nome_usuario = $_SESSION['nome'];
+                            echo " <a href='meu_perfil.php'> $nome_usuario </a>";
+                        ?> 
+                        </h4>
                         <p class="font-weight-light text-muted mb-0">Cinéfilo</p>
                     </div>
                 </div>
@@ -113,6 +116,12 @@
                         Adicionar Séries
                     </a>
                 </li>
+                <li class="nav-item" style=" padding-top: 75%;">
+                    <a href="config/deslogar.php" class="nav-link text-white font-italic">
+                        <i class="fa fa-sign-out" style="color:white"></i>
+                        Sair
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -126,10 +135,25 @@
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
         <h2 class="text-white"> Gostaria de saber quanto tempo já gastou assistindo? </h2>
-        <form action='config/soma_tempo.php' method='post' encType="multipart/form-data">
-        <input type='submit' value='Sim'>
-        </form>
-      </div>
+        
+        <?php 
+        $horasAssistidas = $objBanco->query("SELECT time_format( SEC_TO_TIME( SUM( TIME_TO_SEC(duracaoFilme) ) ),'%H:%i:%s')  AS 'totalHoras' 
+                                             FROM filmes AS F INNER JOIN usuario AS U
+                                             ON F.userID = U.userID");
+
+        $horasAssistidas2 = $objBanco->query("SELECT time_format( SEC_TO_TIME( SUM( TIME_TO_SEC(duracaoEP * numEPS) ) ),'%H:%i:%s') AS 'Total_horas' 
+                                              FROM series AS S INNER JOIN usuario AS U
+                                              ON S.userID = U.userID");
+         
+        while ($linha = $horasAssistidas->fetch(PDO::FETCH_ASSOC)) {
+        echo " <p style='color:white;'> O tempo que você já passou assistindo filmes é {$linha['totalHoras']} </p>";
+        };
+        while ($linha = $horasAssistidas2->fetch(PDO::FETCH_ASSOC)) {
+        echo " <p style='color:white;'> O tempo que você já passou assistindo séries é {$linha['Total_horas']} </p>";
+        };
+        ?>
+        </h3>
+       </div>
       </div>
     </main>
     <footer></footer>

@@ -1,7 +1,5 @@
 
 bloquear acesso a paginas para usuario não logado
 
-formatação da exibição de tempo nas estatisticas
-
-pagina para usuario mudar seus dados / por foto de perfil
+pagina perfil: alterar senha e inserir foto
 

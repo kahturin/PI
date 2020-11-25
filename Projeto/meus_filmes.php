@@ -1,5 +1,6 @@
 <?php
     require 'config/session.php';
+    require_once 'config/db.php';
 ?>
 
 <!DOCTYPE html>
@@ -56,16 +57,13 @@
                         width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                     <div class="media-body">
                         <h4 class="m-0">          <?php 
-                                    $nome_usuario = $_SESSION['nome'];
-                                    echo " <p> $nome_usuario </p>";
-                                ?> </h4>
+                            $nome_usuario = $_SESSION['nome'];
+                            echo " <a href='meu_perfil.php'> $nome_usuario </a>";
+                        ?> 
+                        </h4>
                         <p class="font-weight-light text-muted mb-0">Cinéfilo</p>
                     </div>
                 </div>
-                <a href="config/deslogar.php">
-                <i class="fas fa-sign-out-alt" style="color:white"> </i>
-                    Deslogar
-                </a>
             </div>
 
             <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Página Inicial</p>
@@ -113,6 +111,12 @@
                         Adicionar Séries
                     </a>
                 </li>
+                <li class="nav-item" style=" padding-top: 75%;">
+                    <a href="config/deslogar.php" class="nav-link text-white font-italic">
+                        <i class="fa fa-sign-out" style="color:white"></i>
+                        Sair
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -126,11 +130,35 @@
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
         <h2 class="text-white"> Gostaria de ver quais filmes você já assistiu? </h2>
+        <?php
+
+            $consulta = $objBanco->query("SELECT nomeFilme, sinopseFilme, duracaoFilme,destino_foto 
+                                          FROM filmes AS F INNER JOIN usuario AS U 
+                                          ON F.userID = U.userID");
 
 
-        <form action='config/listar_filmes.php' method='post' encType="multipart/form-data">
-        <input type='submit' value='Sim'>
-        </form>
+    echo "<div class='lista_filmes'>";
+
+            while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                echo "<div class='filmes'>";
+                echo "<section style='color:white;'>";
+                echo "<h2> {$linha['nomeFilme']} </h2>";
+                echo "<br>";
+                echo "<img src={$linha['destino_foto']}>";
+                echo "<br>";
+                echo "<a> Duração do filme: {$linha['duracaoFilme']} </a>";
+                echo "<br>";
+                echo "<p> {$linha['sinopseFilme']} </p>";
+                echo "<br><br>";
+                echo "<div class='linha'> </div>";
+                echo "</section>";
+                echo "</div>";
+            };
+
+    echo "</div>";
+
+        
+        ?>
         
       </div>
     </main>
