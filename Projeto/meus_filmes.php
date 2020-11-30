@@ -132,9 +132,10 @@
         <h2 class="text-white"> Gostaria de ver quais filmes você já assistiu? </h2>
         <?php
 
-            $consulta = $objBanco->query("SELECT nomeFilme, sinopseFilme, duracaoFilme,destino_foto 
+            $consulta = $objBanco->query("SELECT nomeFilme, sinopseFilme, duracaoFilme, destino_foto 
                                           FROM filmes AS F INNER JOIN usuario AS U 
-                                          ON F.userID = U.userID");
+                                          ON F.userID = U.userID
+                                          WHERE F.userID = U.userID");
 
 
     echo "<div class='lista_filmes'>";
