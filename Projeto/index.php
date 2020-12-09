@@ -23,7 +23,7 @@
         
         <link rel="stylesheet" href="./css/style.css">
         <link rel="shortcut icon" href="./images/logo.png"/>
-        <title>Projeto</title>
+        <title>MovieTime</title>
     </head>
 
     <body>
@@ -100,7 +100,7 @@
             
             <section class="banner-vader banner-lg d-flex align-items-center"> 
                 <span class="h2 d-block text-white mx-auto text-center">
-                    Aqui na #nomeDoSite você pode interagir com seus amigos e comartilhar diariamente com eles sobre qual série está te deixando de cabelos em pé
+                    Aqui na MovieTime você pode interagir com seus amigos e comartilhar diariamente com eles sobre qual série está te deixando de cabelos em pé
                 </span>
             </section>
 
@@ -113,7 +113,6 @@
 
         <footer class="footer">
             <div class="container">
-				<span>Não ta dando problema mas também não tá dando errado</span>
 			</div>
         </footer>
     </body>

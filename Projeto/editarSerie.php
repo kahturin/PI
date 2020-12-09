@@ -1,5 +1,12 @@
 <?php
     require 'config/session.php';
+
+    $serieID = $_POST['serieID'];
+
+    $consulta = $objBanco->query("SELECT serieID, nomeSerie, temporada, duracaoEP, numEPS, sinopseSerie, destinoFoto, userID
+    FROM series
+    WHERE serieID = $serieID ");
+
 ?>
 
 <!DOCTYPE html>
@@ -59,8 +66,8 @@
                         <?php 
                             $nome_usuario = $_SESSION['nome'];
                             echo " <a href='meu_perfil.php'> $nome_usuario </a>";
-                        ?>     
-                    </h4>
+                        ?> 
+                                </h4>
                         <p class="font-weight-light text-muted mb-0">Cinéfilo</p>
                     </div>
                 </div>
@@ -121,58 +128,90 @@
         </div>
 
         <div class="page-content p-5" id="content">
-            <button id="sidebarCollapse" type="button"
-                class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small
-                    class="text-uppercase font-weight-bold">Alternar</small></button>
-
-              
-
+        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Alternar</small></button>
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+      <h2 class="text-white"> O que você está assistindo? </h2>
+      <form action='config/atualizarSerie.php' method='post' encType="multipart/form-data">
+      <div class="box_filmes">
+      <?php 
+            while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                echo "<section class='upload_capa'>
+                <div class='form-group'>
+                        <img class='preview-img' src='{$linha['destinoFoto']}'>    
+                          <div class='file-chooser fileUpload'>
+                            <span>Escolher Capa</span>
+                            <input type='file' class='upload' accept='image/*' name='arquivo' id='capaFilme'> 
+                          </div>
+                    <script>
+                        const $ = document.querySelector.bind(document);
+                        fileChooser.onchange = e => {
+                            const fileToUpload = e.target.files.item(0);
+                            const reader = new FileReader();
+                
+                            // evento disparado quando o reader terminar de ler 
+                            reader.onload = e => previewImg.src = e.target.result;
+                
+                            // solicita ao reader que leia o arquivo 
+                            // transformando-o para DataURL. 
+                            // Isso disparará o evento reader.onload.
+                            reader.readAsDataURL(fileToUpload);
+                        };
+                    </script>
+                </div>
+              </section> 
+              
+              <section class='series_split'>
 
-        <h2 class="text-white"> Gostaria de ver quais séries você já maratonou? </h2>
+          <section class='section_series'>
+            <div class='form-group'>
+                <label for='nomeSerie' class='text-white'>Nome da série:</label>
+                <input type='text' class='form-control text-gray bg-light' id='nomeSerie' name='nomeSerie' placeholder='Ex.: The Walking Dead' value='{$linha['nomeSerie']}'>
+                <input type='text' id='serieID' name='serieID' value='{$linha['serieID']}' style='display: none;'>
+            </div>
+          </section>
 
-        
-        <?php
+        <section class='section_series'>
+            <div class='form-group'>
+                <label for='temporada' class='text-white'>Temporada:</label>
+                <input type='text' class='form-control text-gray bg-light' id='temporada' name='temporada' placeholder='Ex.: 1ª Temporada' value='{$linha['temporada']}'>
+            </div>
+        </section>
 
-            require_once 'config/db.php';
+          <section class='section_series'>
+            <div class='form-group'>
+                <label for='duracaoEp' class='text-white'>Duração média de cada episódio:</label>
+                <input class='bg-dark border-0 rounded text-white' type='time' id='duracaoEP' name='duracaoEP' min='00:00' max='30:00' required value='{$linha['duracaoEP']}'>
+            </div>
+          </section>
 
-            $consulta = $objBanco->query("SELECT nomeSerie, temporada, duracaoEP, numEPS, sinopseSerie, destinoFoto, serieID
-                                          FROM series AS S INNER JOIN usuario AS U
-                                          ON S.userID = U.userID
-                                          ORDER BY serieID DESC");
+          <section class='section_series'>
+            <div class='form-group'>
+                <label for='numEps' class='text-white'>Número de episódios:</label>
+                <input type='text' class='form-control text-gray bg-light' id='numEPS' name='numEPS' placeholder='Ex.: 12' value='{$linha['numEPS']}'>
+            </div>
+          </section>
 
+          <section class='section_series'>
+            <div class='form-group'>
+                <label for='sinopseSerie' class='text-white'>Sinopse da série:</label>
+                <textarea class='form-control text-gray bg-light' id='sinopseSerie' name='sinopseSerie' rows='6' placeholder='Ex.: Nos Estados Unidos pós-apocalíptico, um pequeno grupo de sobreviventes segue viajando à procura de uma nova casa longe dos mortos-vivos. O desespero por segurança e suprimentos os coloca constantemente à beira da sanidade.'>
+                {$linha['sinopseSerie']}
+                </textarea>
+            </div>
+          </section>
 
-            
-    echo "<div class='lista_filmes'>";
+          <section class='section_series'>
+            <div class='form-group'>
+                <input type='submit' value='Salvar'>
+            </div>            
+          </section>
 
-    while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-        echo "<div class='filmes'>
-        <section style='color:white;' >
-        <h2> {$linha['nomeSerie']} </h2> <br>
-        <img src={$linha['destinoFoto']}> <br>
-        <a> Temporada {$linha['temporada']} </a> <br>
-        <a> Duração média de cada episódio {$linha['duracaoEP']} </a> <br>
-        <a> Número de episódios:  {$linha['numEPS']} </a> <br>
-        <p> {$linha['sinopseSerie']} </p> <br><br>
-        <form action='config/excluirSerie.php' method='POST'>
-        <input type='text' value='{$linha['serieID']}' name='serieID' style='display: none;'> 
-        <input type='submit' value='Excluir Série'>
-        </form> <br><br>
-        <form action='editarSerie.php' method='POST'>
-        <input type='text' value='{$linha['serieID']}' name='serieID' style='display: none;'> 
-        <input type='submit' value='Editar Informações'>
-        </form> <br><br>
-        <div class='linha'> </div>
-            </section>
-            </div>";
-    };
-
-echo "</div>";
-
-            ?>
-
+      </section>
+      </div>";
+            }                 
+      ?>
       </div>
-      </div>
+     </form>
     </main>
     <footer></footer>
   </body>

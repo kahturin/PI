@@ -1,5 +1,14 @@
+
+
 <?php
     require 'config/session.php';
+
+    $filmeID = $_POST['filmeID'];
+
+    $consulta = $objBanco->query("SELECT nomeFilme, duracaoFilme, sinopseFilme, destino_foto, filmeID 
+    FROM filmes
+    WHERE filmeID = $filmeID");
+
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +34,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <script src="./js/script.js"></script>
 <link rel="shortcut icon" href="./images/logo.png" />
-<title>Minhas Séries</title>
+<title>Meus Filmes</title>
     
     <script>
         function Checkfiles(){
@@ -59,8 +68,8 @@
                         <?php 
                             $nome_usuario = $_SESSION['nome'];
                             echo " <a href='meu_perfil.php'> $nome_usuario </a>";
-                        ?>     
-                    </h4>
+                        ?> 
+                                </h4>
                         <p class="font-weight-light text-muted mb-0">Cinéfilo</p>
                     </div>
                 </div>
@@ -121,58 +130,69 @@
         </div>
 
         <div class="page-content p-5" id="content">
-            <button id="sidebarCollapse" type="button"
-                class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small
-                    class="text-uppercase font-weight-bold">Alternar</small></button>
-
-              
-
+        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Alternar</small></button>
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-
-        <h2 class="text-white"> Gostaria de ver quais séries você já maratonou? </h2>
-
-        
-        <?php
-
-            require_once 'config/db.php';
-
-            $consulta = $objBanco->query("SELECT nomeSerie, temporada, duracaoEP, numEPS, sinopseSerie, destinoFoto, serieID
-                                          FROM series AS S INNER JOIN usuario AS U
-                                          ON S.userID = U.userID
-                                          ORDER BY serieID DESC");
-
-
-            
-    echo "<div class='lista_filmes'>";
-
-    while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-        echo "<div class='filmes'>
-        <section style='color:white;' >
-        <h2> {$linha['nomeSerie']} </h2> <br>
-        <img src={$linha['destinoFoto']}> <br>
-        <a> Temporada {$linha['temporada']} </a> <br>
-        <a> Duração média de cada episódio {$linha['duracaoEP']} </a> <br>
-        <a> Número de episódios:  {$linha['numEPS']} </a> <br>
-        <p> {$linha['sinopseSerie']} </p> <br><br>
-        <form action='config/excluirSerie.php' method='POST'>
-        <input type='text' value='{$linha['serieID']}' name='serieID' style='display: none;'> 
-        <input type='submit' value='Excluir Série'>
-        </form> <br><br>
-        <form action='editarSerie.php' method='POST'>
-        <input type='text' value='{$linha['serieID']}' name='serieID' style='display: none;'> 
-        <input type='submit' value='Editar Informações'>
-        </form> <br><br>
-        <div class='linha'> </div>
-            </section>
-            </div>";
-    };
-
-echo "</div>";
-
-            ?>
-
+      <h2 class="text-white"> O que você está assistindo? </h2>
+      <form action='config/atualizarFilme.php' method='post' encType="multipart/form-data">
+      <div class="box_filmes">
+      <?php 
+            while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                echo "<section class='upload_capa'>
+                <div class='form-group'>
+                        <img class='preview-img' src='{$linha['destino_foto']}'>    
+                          <div class='file-chooser fileUpload'>
+                            <span>Escolher Capa</span>
+                            <input type='file' class='upload' accept='image/*' name='arquivo' id='capaFilme'> 
+                          </div>
+                    <script>
+                        const $ = document.querySelector.bind(document);
+                        fileChooser.onchange = e => {
+                            const fileToUpload = e.target.files.item(0);
+                            const reader = new FileReader();
+                
+                            // evento disparado quando o reader terminar de ler 
+                            reader.onload = e => previewImg.src = e.target.result;
+                
+                            // solicita ao reader que leia o arquivo 
+                            // transformando-o para DataURL. 
+                            // Isso disparará o evento reader.onload.
+                            reader.readAsDataURL(fileToUpload);
+                        };
+                    </script>
+                </div>
+              </section>
+              <section class='filmes_split'>
+              <section class='section_filmes'>
+                        <div class='form-group'>
+                            <label for='nomeFilme' class='text-white'>Nome do filme:</label>
+                            <input type='text' class='form-control text-gray bg-light' id='nomeFilme' name='nomeFilme' placeholder='Ex.: Shrek 2' value='{$linha['nomeFilme']}'>
+                            <input type='text' id='filmeID' name='filmeID' value='{$linha['filmeID']}' style='display: none;'>
+                        </div>
+                    </section>
+                    <section class='section_filmes'>
+                        <div class='form-group'>
+                            <label for='duracaoFilme' class='text-white'> Duração do filme:</label>
+                            <input class='bg-dark border-0 rounded text-white' type='time' id='duracaoFilme' name='duracaoFilme' min='00:00' max='30:00' required value='{$linha['duracaoFilme']}'>
+                        </div>
+                    </section> 
+                    <section class='section_filmes'>
+                        <div class='form-group'>
+                            <label for='sinopseFilme' class='text-white'>Sinopse do Filme:</label>
+                            <textarea class='form-control text-gray bg-light' id='sinopseFilme' name='sinopseFilme' rows='6'>
+                                {$linha['sinopseFilme']}
+                            </textarea>
+                        </div>
+                    </section>
+                    <section class='section_filmes'>
+                    <div class='form-group'>
+                        <input type='submit' value='Salvar'>
+                    </div>            
+                  </section>
+                </section>";
+            }                 
+      ?>
       </div>
-      </div>
+     </form>
     </main>
     <footer></footer>
   </body>

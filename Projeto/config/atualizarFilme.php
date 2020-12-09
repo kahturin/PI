@@ -9,41 +9,42 @@
     
     $sinopseFilme = $_POST['sinopseFilme'];
 
+    $filmeID = $_POST['filmeID'];
+
     $arquivo_tmp = $_FILES['arquivo']['tmp_name'];
 
     $nome_arquivo = $_FILES['arquivo']['name'];
-
+/*
     $variacao = rand(0, 1000000);
 
     $extensao = pathinfo($nome_arquivo, PATHINFO_EXTENSION);
 
     $nome_file = pathinfo($nome_arquivo, PATHINFO_FILENAME);
-
+*/
     $idUsuario = $_SESSION['id'];
-
+/*
     $destino = './imagens_capas_filmes/' . $nome_file . $variacao . '.' . $extensao;
     $destino2 = 'config/imagens_capas_filmes/' . $nome_file . $variacao . '.' . $extensao;
 
 
     move_uploaded_file($arquivo_tmp, $destino);
     move_uploaded_file($arquivo_tmp, $destino2);
-
+*/
 
     try{
-    $stmt = $objBanco->prepare('INSERT INTO filmes ( nomeFilme, duracaoFilme, sinopseFilme, destino_foto, userID) 
-                                VALUES( :nomeFilme, :duracaoFilme, :sinopseFilme, :destino_foto, :userID)');
+    $stmt = $objBanco->prepare('UPDATE filmes 
+                                SET nomeFilme = :nomeFilme, duracaoFilme = :duracaoFilme, sinopseFilme = :sinopseFilme
+                                WHERE filmeID = '.$filmeID.' ');
     $stmt->execute(array(
       ':nomeFilme' => $nomeFilme,
       ':duracaoFilme' => $duracaoFilme,
       ':sinopseFilme' => $sinopseFilme,
-      ':destino_foto' => $destino2,
-      ':userID' => $idUsuario,
     ));
     
-//ini_set("display_errors", 1);
-//error_reporting(E_ALL);
+ini_set("display_errors", 1);
+error_reporting(E_ALL);
 
-    print "<script language='javascript' type='text/javascript'>alert('Filme cadastrado com sucesso!');window.location.href='../adicionar_filmes.php'</script>";
+    print "<script language='javascript' type='text/javascript'>alert('Filme editado com sucesso!');window.location.href='../meus_filmes.php'</script>";
 }catch(PDOException $e) {
     echo 'Error: ' . $e->getMessage();
 }

@@ -39,11 +39,7 @@
       ':destinoFoto' => $destino2,
       ':userID' => $idUsuario,
     ));
-    error_reporting(E_ALL);
- 
-/* Habilita a exibição de erros */
-ini_set("display_errors", 1);
-    //print "<script language='javascript' type='text/javascript'>alert('Série cadastrada com sucesso!');window.location.href='../adicionar_series.php'</script>";
+  print "<script language='javascript' type='text/javascript'>alert('Série cadastrada com sucesso!');window.location.href='../adicionar_series.php'</script>";
 }catch(PDOException $e) {
     
 /* Informa o nível dos erros que serão exibidos */

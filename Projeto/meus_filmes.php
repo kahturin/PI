@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <script src="./js/script.js"></script>
 <link rel="shortcut icon" href="./images/logo.png" />
-<title>Meus Filmes</title>
+<title> Meus Filmes</title>
     
     <script>
         function Checkfiles(){
@@ -130,37 +130,35 @@
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
         <h2 class="text-white"> Gostaria de ver quais filmes você já assistiu? </h2>
+        <div class='lista_filmes'>
         <?php
 
-            $consulta = $objBanco->query("SELECT nomeFilme, sinopseFilme, duracaoFilme, destino_foto 
+            $consulta = $objBanco->query("SELECT nomeFilme, sinopseFilme, duracaoFilme, destino_foto, filmeID 
                                           FROM filmes AS F INNER JOIN usuario AS U 
                                           ON F.userID = U.userID
-                                          WHERE F.userID = U.userID");
-
-
-    echo "<div class='lista_filmes'>";
-
+                                          WHERE F.userID = U.userID
+                                          ORDER BY filmeID DESC");
             while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-                echo "<div class='filmes'>";
-                echo "<section style='color:white;'>";
-                echo "<h2> {$linha['nomeFilme']} </h2>";
-                echo "<br>";
-                echo "<img src={$linha['destino_foto']}>";
-                echo "<br>";
-                echo "<a> Duração do filme: {$linha['duracaoFilme']} </a>";
-                echo "<br>";
-                echo "<p> {$linha['sinopseFilme']} </p>";
-                echo "<br><br>";
-                echo "<div class='linha'> </div>";
-                echo "</section>";
-                echo "</div>";
-            };
-
-    echo "</div>";
-
-        
+                echo "<div class='filmes'> 
+                        <section style='color:white;'>";
+                echo "<h2> {$linha['nomeFilme']} </h2> <br>";
+                echo "<img src={$linha['destino_foto']}> <br>";
+                echo "<a> Duração do filme: {$linha['duracaoFilme']} </a> <br>";
+                echo "<p> {$linha['sinopseFilme']} </p> <br><br>";
+                echo "<form action='config/excluirFilme.php' method='POST'>";
+                    echo "<input type='text' value='{$linha['filmeID']}' name='filmeID' style='display: none;'> ";
+                    echo "<input type='submit' value='Excluir Filme'>";
+                echo "</form> <br><br>";
+                echo "<form action='editarFilme.php' method='POST'>";
+                    echo "<input type='text' value='{$linha['filmeID']}' id='filmeID' name='filmeID' style='display: none;'> ";
+                    echo "<input type='submit' value='Editar Informações'>";
+                echo "</form> <br><br>";
+                echo "<div class='linha'> </div> 
+                    </section> 
+                    </div>";
+            }
         ?>
-        
+        </div>
       </div>
     </main>
     <footer></footer>

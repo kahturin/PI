@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="./css/style.css">
 <script src="./js/script.js"></script>
 <link rel="shortcut icon" href="./images/logo.png" />
-<title>Meus Filmes</title>
+<title>MovieTime</title>
     
     <script>
         function Checkfiles(){
@@ -129,7 +129,7 @@
 
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
-        <h2 class="text-white"> Os fillmes que a galera anda vendo: </h2>
+        <h2 class="text-white"> O que a galera anda assistindo: </h2>
         <?php
 
             $consulta = $objBanco->query("SELECT nomeFilme, sinopseFilme, duracaoFilme,destino_foto 
@@ -153,6 +153,36 @@
                 echo "</section>";
                 echo "</div>";
             };
+
+    echo "</div>";
+
+    $consulta2 = $objBanco->query("SELECT nomeSerie, temporada, duracaoEP, numEPS, sinopseSerie, destinoFoto 
+    FROM series AS S INNER JOIN usuario AS U
+    ON S.userID = U.userID");
+
+
+
+    echo "<div class='lista_filmes'>";
+
+    while ($linha2 = $consulta2->fetch(PDO::FETCH_ASSOC)) {
+    echo "<div class='filmes'>";
+    echo "<section style='color:white;' >";
+    echo "<h2> {$linha2['nomeSerie']} </h2>";
+    echo "<br>";
+    echo "<img src={$linha2['destinoFoto']}>";
+    echo "<br>";
+    echo "<a> Temporada {$linha2['temporada']} </a>";
+    echo "<br>";
+    echo "<a> Duração média de cada episódio {$linha2['duracaoEP']} </a>";
+    echo "<br>";
+    echo "<a> Número de episódios:  {$linha2['numEPS']} </a>";
+    echo "<br>";
+    echo "<p> {$linha2['sinopseSerie']} </p>";
+    echo "<br><br>";
+    echo "<div class='linha'> </div>";
+    echo "</section>";
+    echo "</div>";
+    };
 
     echo "</div>";
 
