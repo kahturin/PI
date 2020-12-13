@@ -8,7 +8,7 @@
         if($senha == $confirmaSenha){
         $senha = trim($senha);
         $senha = password_hash( $senha, PASSWORD_DEFAULT);
-        $fotoUsuario = ;
+        $fotoUsuario = './fotos_perfil_usuario/default.jpg';
         $objStmt = $objBanco->prepare('	INSERT INTO usuario 
                                             (nome, email, senha, fotoUsuario)
                                         VALUES 

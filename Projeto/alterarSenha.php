@@ -128,36 +128,24 @@ require_once 'config/db.php';
             <h2 class="text-white"> Alterar Senha: </h2>
 
 <form action="config/atualizarSenha.php" method="POST">
-
-<section class="section_filmes" style=" margin-left:250%; width:250px; ">
-  <div class="form-group">
-      <label for="nomeFilme" class="text-white">Senha Atual:</label>
-      <input type="text" class="form-control text-gray bg-light" name="senhaOld">
-  </div>
-</section>
-
 <section class="section_filmes" style=" margin-left:250%; width:250px;">
   <div class="form-group">
       <label for="nomeFilme" class="text-white">Nova Senha:</label>
-      <input type="text" class="form-control text-gray bg-light" name="senhaNova1">
+      <input type="password" class="form-control text-gray bg-light" name="senhaNova1">
   </div>
 </section>
-
 <section class="section_filmes" style=" margin-left:250%; width:250px;">
   <div class="form-group">
       <label for="nomeFilme" class="text-white">Confirmar Nova Senha:</label>
-      <input type="text" class="form-control text-gray bg-light" name="senhaNova2">
+      <input type="password" class="form-control text-gray bg-light" name="senhaNova2">
   </div>
 </section>
-
 <section class="section_filmes" style=" margin-left:250%; ">
   <div class="form-group">
       <input type="submit" value="Salvar">
   </div>            
 </section>
-
 </form>
-
 </div>
     </main>
     <footer></footer>

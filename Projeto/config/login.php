@@ -7,7 +7,6 @@
 	{
         $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
         $senha = $_POST['senha'];
-
         $objStmt = $objBanco->query("SELECT userID, nome ,senha, email FROM usuario WHERE email = '$email' ");
         $reg = $objStmt->fetch(PDO::FETCH_ASSOC);
         $hash = $reg['senha'];

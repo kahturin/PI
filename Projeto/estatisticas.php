@@ -76,10 +76,6 @@
                         <p class="font-weight-light text-muted mb-0">Cinéfilo</p>
                     </div>
                 </div>
-                <a href="config/deslogar.php">
-                <i class="fas fa-sign-out-alt" style="color:white"> </i>
-                    Deslogar
-                </a>
             </div>
 
             <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Página Inicial</p>
