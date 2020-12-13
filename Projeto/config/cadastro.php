@@ -3,26 +3,21 @@
     require_once 'db.php';
 
     if (isset($_POST['btnCadastrar'])){
-            
         $senha = $_POST['senha'];
         $confirmaSenha = $_POST['confirmaSenha'];
-        
         if($senha == $confirmaSenha){
-
-
         $senha = trim($senha);
-
-        
         $senha = password_hash( $senha, PASSWORD_DEFAULT);
-
+        $fotoUsuario = ;
         $objStmt = $objBanco->prepare('	INSERT INTO usuario 
-                                            (nome, email, senha)
+                                            (nome, email, senha, fotoUsuario)
                                         VALUES 
-                                            ( :nome, :email, :senha)');
+                                            ( :nome, :email, :senha, :fotoUsuario)');
         
         $objStmt->bindParam(':nome', $_POST['nome']);					
         $objStmt->bindParam(':email', $_POST['email']);	
         $objStmt->bindParam(':senha', $senha);
+        $objStmt->bindParam(':fotoUsuario', $fotoUsuario);
         
         //Executo
  

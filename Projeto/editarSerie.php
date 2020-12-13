@@ -1,12 +1,12 @@
 <?php
     require 'config/session.php';
+    require_once 'config/db.php';
 
     $serieID = $_POST['serieID'];
 
-    $consulta = $objBanco->query("SELECT serieID, nomeSerie, temporada, duracaoEP, numEPS, sinopseSerie, destinoFoto, userID
-    FROM series
-    WHERE serieID = $serieID ");
-
+    $consulta = $objBanco->query("SELECT S.serieID, S.nomeSerie, S.temporada, S.duracaoEP, S.numEPS, S.sinopseSerie, S.destinoFoto, S.userID
+    FROM series AS S
+    WHERE S.serieID = $serieID");
 ?>
 
 <!DOCTYPE html>
@@ -58,8 +58,16 @@
     <main>
         <div class="vertical-nav" id="sidebar">
             <div class="menu py-4 px-3 mb-4">
-                <div class="media d-flex align-items-center"><img
-                        src="images/hulk.jpg"
+                <div class="media d-flex align-items-center"><img src=
+                <?php
+                $consulta = $objBanco->query("
+                 SELECT U.nome, U.userID, U.fotoUsuario
+                 FROM usuario AS U
+                 WHERE U.userID = $userID");
+                    while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                        echo "{$linha['U.fotoUsuario']}";
+                    }
+                ?>
                         width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                     <div class="media-body">
                         <h4 class="m-0">          

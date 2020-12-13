@@ -1,6 +1,13 @@
 <?php
     require 'config/session.php';
     require_once 'config/db.php';
+
+    $userID =  $_SESSION['id'];
+
+    $consulta = $objBanco->query("SELECT nome, userID, fotoUsuario
+    FROM usuario
+    WHERE userID = $userID");
+
 ?>
 
 <!DOCTYPE html>
@@ -52,11 +59,18 @@
     <main>
         <div class="vertical-nav" id="sidebar">
             <div class="menu py-4 px-3 mb-4">
-                <div class="media d-flex align-items-center"><img
-                        src="images/hulk.jpg"
-                        width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+                <div class='media d-flex align-items-center'>
+                <img src=
+                <?php
+            
+                    while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                        echo "{$linha['fotoUsuario']}";
+                    }
+                ?>
+                width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                     <div class="media-body">
-                        <h4 class="m-0">          <?php 
+                        <h4 class="m-0">          
+                        <?php 
                             $nome_usuario = $_SESSION['nome'];
                             echo " <a href='meu_perfil.php'> $nome_usuario </a>";
                         ?> 

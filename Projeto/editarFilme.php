@@ -2,6 +2,7 @@
 
 <?php
     require 'config/session.php';
+    require_once 'config/db.php';
 
     $filmeID = $_POST['filmeID'];
 
@@ -9,6 +10,9 @@
     FROM filmes
     WHERE filmeID = $filmeID");
 
+    $consulta2 = $objBanco->query("SELECT nome, userID, fotoUsuario
+    FROM usuario
+    WHERE userID = $userID");
 ?>
 
 <!DOCTYPE html>
@@ -60,8 +64,12 @@
     <main>
         <div class="vertical-nav" id="sidebar">
             <div class="menu py-4 px-3 mb-4">
-                <div class="media d-flex align-items-center"><img
-                        src="images/hulk.jpg"
+                <div class="media d-flex align-items-center"><img src=
+                <?php
+                    while ($linha2 = $consulta2->fetch(PDO::FETCH_ASSOC)) {
+                        echo "{$linha2['fotoUsuario']}";
+                    }
+                ?>
                         width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                     <div class="media-body">
                         <h4 class="m-0">          
