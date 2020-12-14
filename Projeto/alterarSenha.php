@@ -52,7 +52,10 @@ require_once 'config/db.php';
     <main>
         <div class="vertical-nav" id="sidebar">
             <div class="menu py-4 px-3 mb-4">
-                <div class="media d-flex align-items-center"><img src="images/hulk.jpg" width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+                <div class="media d-flex align-items-center"> <?php 
+                $fotoUsuario = $_SESSION['fotoUsuario']; 
+                 echo "<img src='$fotoUsuario' width='65' class='mr-3 rounded-circle img-thumbnail shadow-sm'>"  
+                ?>
                     <div class="media-body">
                         <h4 class="m-0"> <?php
                                             $nome_usuario = $_SESSION['nome'];

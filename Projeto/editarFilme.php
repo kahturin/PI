@@ -9,10 +9,6 @@
     $consulta = $objBanco->query("SELECT nomeFilme, duracaoFilme, sinopseFilme, destino_foto, filmeID 
     FROM filmes
     WHERE filmeID = $filmeID");
-
-    $consulta2 = $objBanco->query("SELECT nome, userID, fotoUsuario
-    FROM usuario
-    WHERE userID = $userID");
 ?>
 
 <!DOCTYPE html>
@@ -64,13 +60,11 @@
     <main>
         <div class="vertical-nav" id="sidebar">
             <div class="menu py-4 px-3 mb-4">
-                <div class="media d-flex align-items-center"><img src=
-                <?php
-                    while ($linha2 = $consulta2->fetch(PDO::FETCH_ASSOC)) {
-                        echo "{$linha2['fotoUsuario']}";
-                    }
+                <div class="media d-flex align-items-center">
+                <?php 
+                $fotoUsuario = $_SESSION['fotoUsuario']; 
+                 echo "<img src='$fotoUsuario' width='65' class='mr-3 rounded-circle img-thumbnail shadow-sm'>"  
                 ?>
-                        width="65" class="mr-3 rounded-circle img-thumbnail shadow-sm">
                     <div class="media-body">
                         <h4 class="m-0">          
                         <?php 

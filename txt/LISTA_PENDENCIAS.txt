@@ -1,4 +1,0 @@
-
-bloquear acesso a paginas para usuario não logado
-
-pagina perfil: alterar senha e inserir foto
